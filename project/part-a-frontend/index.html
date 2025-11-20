@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <title>devAcademy | E-Learning Πληροφορικής</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/reset.css" />
+    <link rel="stylesheet" href="assets/css/theme.css" />
+    <link rel="stylesheet" href="assets/css/layout.css" />
+    <link rel="stylesheet" href="assets/css/components.css" />
+    
+
+</head>
+<body data-page="home">
+
+<body>
+  <div class="page">
+    <!-- HEADER -->
+    <header>
+      <div class="container">
+        <nav class="nav">
+          <a href="index.html" class="logo">
+            <div class="logo-badge">&lt;/&gt;</div>
+            <div>
+              devAcademy
+              <span>E-Learning Πληροφορικής</span>
+            </div>
+          </a>
+
+          <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="courses.html">Courses</a>
+            <a href="books.html">Books</a>
+            <a href="about.html">About</a>
+          </div>
+
+          <div class="nav-cta">
+            <a href="register.html" class="btn btn-primary">Register</a>
+          </div>
+
+          <!-- Mobile toggle -->
+          <button class="mobile-toggle" id="mobileToggle" aria-label="Άνοιγμα μενού">
+            <span></span>
+          </button>
+        </nav>
+
+        <!-- Mobile menu -->
+        <div class="mobile-menu" id="mobileMenu">
+          <a href="index.html">Home</a>
+          <a href="courses.html">Courses</a>
+          <a href="books.html">Books</a>
+          <a href="about.html">About</a>
+          <a href="register.html" class="btn btn-primary">Register</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main>
+      <div class="container">
+        <!-- HERO -->
+        <section class="hero">
+          <div class="hero-grid">
+            <div class="hero-left">
+              <div class="pill">
+                
+                
+                    <span class="pill-dot"></span>
+                        Live • New cohort starting soon
+                
+
+              </div>
+
+              <h1 class="hero-title">
+                Start your <span>coding journey</span> today.
+              </h1>
+
+              <p class="hero-subtitle">
+                Μάθε Python, Web Development, Δίκτυα και Βάσεις Δεδομένων
+                με πρακτικά online μαθήματα, εργασίες και projects προσαρμοσμένα σε
+                φοιτητές Πληροφορικής.
+              </p>
+
+              <div class="hero-cta">
+                <a href="courses.html" class="btn btn-primary">Browse Courses</a>
+                <a href="register.html" class="btn btn-ghost">Create free account</a>
+              </div>
+
+              <div class="hero-meta">
+                <span><strong>15+</strong> courses</span>
+                <span><strong>100+ ώρες</strong> βίντεο &amp; υλικό</span>
+                <span><strong>Projects &amp; quizzes</strong> ανά μάθημα</span>
+              </div>
+            </div>
+
+            <div class="hero-right" aria-label="Code preview">
+              <div class="hero-right-header">
+                <div class="hero-dots">
+                  <div class="hero-dot"></div>
+                  <div class="hero-dot"></div>
+                  <div class="hero-dot"></div>
+                </div>
+                <span class="hero-filename">devacademy/intro_to_python.py</span>
+              </div>
+
+            <div class="code-window">
+                <div class="code-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span class="code-filename">devacademy/intro_to_python.py</span>
+            </div>
+
+            <pre class="code-block">
+1    # welcome to devAcademy 👋
+2      class Student:
+3      def __init__(self, name):
+4      self.name = name
+5      self.track = "Python & Web"
+6
+7      def start_course(self):
+8      return f"{self.name}, let's build something real."
+9
+10     you = Student("You")
+11     print(you.start_course())
+            </pre>
+
+      
+        </div>
+
+
+              <div class="hero-badge">
+                <span class="hero-badge-pill"></span>
+                <span class="hero-filename">Beginner-friendly • Hands-on labs</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- TRACKS -->
+        <section>
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Learning tracks</h2>
+              <p class="section-subtitle">
+                Διάλεξε διαδρομή ανάλογα με το επίπεδο και τους στόχους σου.
+              </p>
+            </div>
+          </div>
+
+          <div class="tracks-grid">
+            <article class="track-card">
+              <div class="track-pill">Beginner • No experience</div>
+              <h3 class="track-title">From Zero to Python</h3>
+              <p class="track-desc">
+                Μάθε βασικές έννοιες προγραμματισμού, types, συναρτήσεις και αρχεία,
+                με mini-projects και ασκήσεις.
+              </p>
+              <div class="track-meta">
+                <span>Python</span>
+                <span>Algorithms basics</span>
+                <span>10+ hours</span>
+              </div>
+              <a href="courses.html" class="section-link">View courses in this track →</a>
+            </article>
+
+            <article class="track-card">
+              <div class="track-pill">Web • Frontend</div>
+              <h3 class="track-title">Modern Web Development</h3>
+              <p class="track-desc">
+                Από HTML &amp; CSS σε responsive UI με JavaScript. Ιδανικό για
+                φοιτητές που θέλουν να χτίσουν το πρώτο τους portfolio.
+              </p>
+              <div class="track-meta">
+                <span>HTML • CSS • JS</span>
+                <span>Responsive design</span>
+              </div>
+              <a href="courses.html" class="section-link">Explore web courses →</a>
+            </article>
+
+            <article class="track-card">
+              <div class="track-pill">Systems • Data</div>
+              <h3 class="track-title">Networks &amp; Databases</h3>
+              <p class="track-desc">
+                Θεωρία και πράξη σε TCP/IP, routing, SQL &amp; σχεσιακό μοντέλο,
+                με παραδείγματα κοντά στην ύλη σχολών Πληροφορικής.
+              </p>
+              <div class="track-meta">
+                <span>Networking</span>
+                <span>SQL</span>
+                <span>Case studies</span>
+              </div>
+              <a href="courses.html" class="section-link">See all tracks →</a>
+            </article>
+          </div>
+        </section>
+
+        <!-- FEATURED COURSES -->
+        <section>
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Featured courses</h2>
+              <p class="section-subtitle">
+                Μερικά μαθήματα για να ξεκινήσεις. Δες όλες τις επιλογές στο courses.html.
+              </p>
+            </div>
+            <a href="courses.html" class="section-link">View all courses →</a>
+          </div>
+
+          <div class="cards-grid">
+            <article class="track-card">
+              <div class="card-header">
+                <h3 class="card-title">Εισαγωγή στην Python</h3>
+                <span class="badge badge-level">Beginner</span>
+              </div>
+              <p class="card-desc">
+                Συντακτικό, μεταβλητές, συναρτήσεις και αρχεία με παραδείγματα από
+                πραγματικές εργασίες/assignments.
+              </p>
+              <div class="card-footer">
+                <span>6 weeks • 25 lessons</span>
+                <a href="course-details.html">Details →</a>
+              </div>
+            </article>
+
+            <article class="track-card">
+              <div class="card-header">
+                <h3 class="card-title">Web Development με HTML, CSS &amp; JS</h3>
+                <span class="badge badge-level">Beginner / Intermediate</span>
+              </div>
+              <p class="card-desc">
+                Χτίσε από το μηδέν responsive landing pages και μικρές
+                εφαρμογές με JavaScript.
+              </p>
+              <div class="card-footer">
+                <span>8 weeks • Projects</span>
+                <a href="course-details.html">Details →</a>
+              </div>
+            </article>
+
+            <article class="track-card">
+              <div class="card-header">
+                <h3 class="card-title">Βάσεις Δεδομένων &amp; SQL</h3>
+                <span class="badge badge-level">Intermediate</span>
+              </div>
+              <p class="card-desc">
+                Σχεσιακό μοντέλο, κανονικοποίηση, και SQL queries προσαρμοσμένα
+                σε πανεπιστημιακού τύπου παραδείγματα.
+              </p>
+              <div class="card-footer">
+                <span>6 weeks • Labs</span>
+                <a href="course-details.html">Details →</a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- RESOURCES / BOOKS -->
+        <section>
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Library &amp; resources</h2>
+              <p class="section-subtitle">
+                Συνοδευτικά ebooks, σημειώσεις και cheatsheets για τα μαθήματα.
+              </p>
+            </div>
+            <a href="books.html" class="section-link">Browse all books →</a>
+          </div>
+
+          <div class="resource-list">
+            <div class="track-card">
+              <div class="resource-main">
+                <span class="resource-title">Python για Αρχάριους</span>
+                <span class="resource-meta">PDF • 120 σελίδες • Ελληνικά</span>
+              </div>
+              <span class="resource-tag">Python</span>
+            </div>
+
+            <div class="track-card">
+              <div class="resource-main">
+                <span class="resource-title">Σημειώσεις Web Fundamentals</span>
+                <span class="resource-meta">HTML, CSS, Flexbox, Grid</span>
+              </div>
+              <span class="resource-tag">Web</span>
+            </div>
+
+            <div class="track-card">
+              <div class="resource-main">
+                <span class="resource-title">SQL Quick Reference</span>
+                <span class="resource-meta">SELECT, JOIN, GROUP BY, INDEXES</span>
+              </div>
+              <span class="resource-tag">SQL</span>
+            </div>
+
+            <div class="track-card">
+              <div class="resource-main">
+                <span class="resource-title">Networks Cheatsheet</span>
+                <span class="resource-meta">OSI, TCP/IP, routing basics</span>
+              </div>
+              <span class="resource-tag">Networks</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- CTA -->
+        <section>
+          <div class="cta">
+            <div>
+              <h2 class="cta-title">Έτοιμος/η να ξεκινήσεις;</h2>
+              <p class="cta-text">
+                Δημιούργησε τώρα δωρεάν λογαριασμό, διάλεξε μάθημα
+                και ξεκίνα να χτίζεις το δικό σου portfolio projects στην Πληροφορική.
+              </p>
+            </div>
+            <a href="register.html" class="btn btn-primary">Create your account</a>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+        <div class="footer-inner">
+          <div class="footer-meta">
+            © 2025 devAcademy · E-Learning Πληροφορικής
+          </div>
+          
+        </div>
+      </div>
+    </footer>
+  </div>
+
+<!-- // AICANARY: CSD-ELearn-2025 -->
+<script src="assets/js/ui/menu.js" defer></script>
+<script src="assets/js/forms/register-form.js" defer></script>
+<script src="assets/js/ui/responsive.js" defer></script>
+<script src="assets/js/app.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,109 @@
+/* // AICANARY: CSD-ELearn-2025 */
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* Header layout / sticky */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 0;
+  gap: 1rem;
+}
+
+/* MOBILE defaults (mobile first) */
+.nav-links {
+  display: none;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.nav-cta {
+  display: none;
+}
+
+.mobile-toggle,
+.mobile-menu {
+  display: block;
+}
+
+/* βασικό layout hero + sections */
+main {
+  flex: 1;
+  padding: 1.25rem 0 2.5rem;
+}
+
+.hero {
+  padding-top: 1.5rem;
+  padding-bottom: 2.5rem;
+}
+
+.hero-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+/* grid για tracks / cards / resources - mobile first */
+.tracks-grid,
+.cards-grid,
+.resource-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.9rem;
+}
+
+/* DESKTOP (>= 880px) */
+@media (min-width: 880px) {
+
+  .hero-grid {
+    flex-direction: row;
+  }
+
+  .hero-left,
+  .hero-right {
+    flex: 1;
+  }
+
+  .tracks-grid,
+  .resource-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .cards-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  /* nav desktop */
+  .nav-links {
+    display: flex;
+  }
+
+  .nav-cta {
+    display: flex;
+  }
+
+  .mobile-toggle,
+  .mobile-menu {
+    display: none !important;
+  }
+}

@@ -1,0 +1,442 @@
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: 0.03em;
+}
+
+.logo-badge {
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 30% 20%, #38bdf8, #0ea5e9 40%, #0f172a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+}
+
+.nav-links {
+  display: none;
+  align-items: center;
+  gap: 1.75rem;
+  font-size: 0.95rem;
+}
+
+.nav-links a {
+  color: #9ca3af;
+  position: relative;
+}
+
+/* Buttons */
+.btn {
+  border-radius: 999px;
+  padding: 0.45rem 1.1rem;
+  font-size: 0.9rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+
+.btn-primary {
+  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+  color: #0b1220;
+  font-weight: 600;
+  padding: 0.55rem 1.4rem;
+  border-radius: 999px;
+  border: none;
+  margin-top: 0.5rem;
+
+  /* shadow όπως στη 2η εικόνα */
+  box-shadow: 0 10px 25px rgba(56, 189, 248, 0.35);
+
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 35px rgba(56, 189, 248, 0.55);
+}
+
+
+.btn-ghost {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--text-main);
+  padding: 0.55rem 1.4rem;
+  border-radius: 999px;
+
+  transition: background 0.15s ease, border 0.15s ease, transform 0.15s ease;
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  margin-top: 1.0rem;
+  color:rgba(254, 255, 255, 0.94);
+  
+}
+
+.section-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 1.0rem;
+
+}
+
+.section-link {
+  color: var(--accent);
+  font-weight: 500;
+  margin-top: 0.5rem;
+}
+
+.card {
+  border-radius: var(--radius-lg);
+  background: var(--card-bg);
+  border: 1px solid var(--border-subtle);
+  padding: 0.9rem 1rem;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
+}
+
+/* // AICANARY: CSD-ELearn-2025 */
+/* Learning tracks cards */
+
+.track-card {
+  border-radius: 22px;
+  padding: 1.2rem 1.3rem;
+
+  /* περίγραμμα + “glow” όπως στην 1η φωτό */
+  border: 1px solid rgba(37, 99, 235, 0.7);
+  background:
+    radial-gradient(circle at top left, rgba(56, 189, 248, 0.20), transparent 55%),
+    rgba(15, 23, 42, 0.98);
+
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+}
+
+/* τίτλος, κείμενο για track */
+.track-title {
+  font-size: 0.98rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.track-desc {
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  margin-bottom: 0.6rem;
+}
+
+
+/* hero title, subtitle */
+.hero-title {
+  font-size: clamp(2.1rem, 4vw, 2.7rem);
+  font-weight: 700;
+}
+
+.hero-title span {
+  background: linear-gradient(to right, #38bdf8, #a855f7);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.hero-cta {
+  margin-top: 2.4rem;
+}
+
+/* // AICANARY: CSD-ELearn-2025 */
+/* Hero meta pills: (15+ courses, 100+ ώρες, Projects & quizzes...) */
+
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2.0rem;
+}
+
+.hero-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.65rem;
+  font-size: 0.85rem;
+  border-radius: 999px;
+
+  border: 1px solid rgba(255,255,255,0.18);
+
+  /* Background glow */
+  background: linear-gradient(
+      180deg,
+      rgba(196, 14, 14, 0.06) 0%,
+      rgba(70, 57, 157, 0.1) 100%
+  );
+
+  /* Subtle shadow */
+  box-shadow: 0 8px 18px rgba(99, 93, 93, 0.35);
+
+  color: var(--text-main);
+}
+
+.hero-meta strong {
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+/* // AICANARY: CSD-ELearn-2025 */
+/* Live badge πάνω από τον τίτλο */
+/* // AICANARY: CSD-ELearn-2025 */
+
+/* Γραμμή πάνω από το code-block (dots + filename) */
+.hero-right-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;   /* dots αριστερά, filename δεξιά */
+  margin-bottom: 0.75rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* To ίδιο το filename */
+.hero-filename {
+  color: #9ca3af;       /* εδώ αλλάζεις χρώμα */
+  font-size: 0.78rem;   /* εδώ αλλάζεις μέγεθος */
+  letter-spacing: 0.03em;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+
+  /* για να μοιάζει με “μπάρα” */
+  padding: 0.2rem 0.9rem;
+  border-radius: 999px;
+
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  background: radial-gradient(circle at left, rgba(56, 189, 248, 0.18), transparent 55%),
+              rgba(15, 23, 42, 0.95);
+
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.8);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Το πράσινο “λαμπάκι” Live */
+.pill-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #22c55e;
+  box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.35);
+}
+
+/* // AICANARY: CSD-ELearn-2025 */
+/* EXTERNAL WRAPPER */
+.code-window {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(148, 163, 184, 0.20);
+  border-radius: 22px;
+  padding: 1rem 1.2rem;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.55);
+  backdrop-filter: blur(25px);
+  max-width: 520px;
+}
+
+/* HEADER (τα “traffic lights”) */
+.code-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.code-header .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.dot.red { background: #ff5f56; }
+.dot.yellow { background: #ffbd2e; }
+.dot.green { background: #27c93f; }
+
+/* CODE AREA */
+.code-block {
+  background: rgba(2, 6, 23, 0.6);
+  padding: 1rem 1rem;
+  border-radius: 14px;
+  border: 1px solid rgba(148,163,184,0.15);
+  font-family: "Fira Code", "JetBrains Mono", monospace;
+  font-size: 0.9rem;
+  line-height: 1.45rem;
+  color: #d1d5db;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+/* TAG κάτω από το code window */
+.code-tag {
+  margin-top: 0.8rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.85rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+/* // AICANARY: CSD-ELearn-2025 */
+/* Force desktop menu to appear */
+
+.nav-links {
+  display: flex !important;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.nav-cta {
+  display: flex !important;
+}
+
+.mobile-toggle,
+.mobile-menu {
+  display: none !important;
+}
+
+/* // AICANARY: CSD-ELearn-2025 */
+/* FORCE HEADER + MENU VISIBLE */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #020617;              /* ώστε να ξεχωρίζει από το hero */
+}
+
+.nav {
+  min-height: 64px;                 /* ύψος header */
+}
+
+/* δείξε ΠΑΝΤΑ το main menu στο desktop */
+.nav-links {
+  display: flex !important;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+/* δείξε το κουμπί Register */
+.nav-cta {
+  display: flex !important;
+}
+
+/* κρύψε hamburger/menu για αρχή (θα το φτιάξουμε μετά) */
+.mobile-toggle,
+.mobile-menu {
+  display: none !important;
+}
+
+/* // AICANARY: CSD-ELearn-2025 */
+.cta {
+  margin-top: 1.6rem;
+  display: inline-block;
+}
+
+.cta a.btn-primary {
+  margin-top: 1.5rem;  /* ή 2rem αν θες πιο πολύ */
+  display: inline-block;
+}
+
+/* // AICANARY: CSD-ELearn-2025 */
+/* === FOOTER === */
+
+footer {
+  background: linear-gradient(180deg, rgba(2, 6, 23, 0.8), rgba(2, 6, 23, 1));
+  padding: 2.8rem 0;
+  margin-top: 4rem;
+  border-top: 1px solid rgba(148, 163, 184, 0.14);
+}
+
+.footer-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Logo + description */
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.footer-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  max-width: 420px;
+  line-height: 1.5;
+}
+
+
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.footer-column h4 {
+  font-size: 0.95rem;
+  color: var(--text-main);
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+}
+
+.footer-column a {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  transition: color 0.15s ease;
+}
+
+.footer-column a:hover {
+  color: var(--accent);
+}
+
+/* Copyright */
+.footer-copy {
+  margin-top: 1.2rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* Responsive */
+@media (min-width: 880px) {
+  .footer-inner {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
