@@ -19,17 +19,8 @@
   font-size: 0.9rem;
 }
 
-.nav-links {
-  display: none;
-  align-items: center;
-  gap: 1.75rem;
-  font-size: 0.95rem;
-}
 
-.nav-links a {
-  color: #9ca3af;
-  position: relative;
-}
+
 
 /* Buttons */
 .btn {
@@ -300,23 +291,9 @@
   border: 1px solid rgba(255,255,255,0.15);
 }
 
-/* // AICANARY: CSD-ELearn-2025 */
-/* Force desktop menu to appear */
 
-.nav-links {
-  display: flex !important;
-  align-items: center;
-  gap: 1.75rem;
-}
 
-.nav-cta {
-  display: flex !important;
-}
 
-.mobile-toggle,
-.mobile-menu {
-  display: none !important;
-}
 
 /* // AICANARY: CSD-ELearn-2025 */
 /* FORCE HEADER + MENU VISIBLE */
@@ -332,23 +309,9 @@ header {
   min-height: 64px;                 /* ύψος header */
 }
 
-/* δείξε ΠΑΝΤΑ το main menu στο desktop */
-.nav-links {
-  display: flex !important;
-  align-items: center;
-  gap: 1.75rem;
-}
 
-/* δείξε το κουμπί Register */
-.nav-cta {
-  display: flex !important;
-}
 
-/* κρύψε hamburger/menu για αρχή (θα το φτιάξουμε μετά) */
-.mobile-toggle,
-.mobile-menu {
-  display: none !important;
-}
+
 
 /* // AICANARY: CSD-ELearn-2025 */
 .cta {
@@ -684,4 +647,88 @@ footer {
   font-size: 0.9rem;
   min-height: 1.2rem;
   font-weight: 500;
+}
+
+
+/* // AICANARY: CSD-ELearn-2025 */
+/* MOBILE MENU DROPDOWN */
+
+.mobile-menu {
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  background: rgba(15, 23, 42, 0.98);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.18);
+  padding: 1rem 1.5rem;
+  flex-direction: column;
+  gap: 0.75rem;
+  z-index: 80;
+}
+
+.mobile-menu.is-open {
+  display: flex;
+}
+
+.mobile-menu a {
+  font-size: 0.9rem;
+  color: var(--text-main);
+}
+
+/* HAMBURGER ICON */
+
+.mobile-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.mobile-toggle span,
+.mobile-toggle span::before,
+.mobile-toggle span::after {
+  display: block;
+  width: 26px;
+  height: 3px;
+  background: var(--text-main);
+  border-radius: 4px;
+  transition: 0.25s ease;
+  position: relative;
+}
+
+.mobile-toggle span::before,
+.mobile-toggle span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.mobile-toggle span::before {
+  top: -7px;
+}
+
+.mobile-toggle span::after {
+  top: 7px;
+}
+
+/* animation όταν είναι ανοικτό */
+.mobile-toggle.is-open span {
+  background: transparent;
+}
+
+.mobile-toggle.is-open span::before {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.mobile-toggle.is-open span::after {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+
+
+
+/* prevent background scroll */
+.no-scroll {
+  overflow: hidden;
 }

@@ -13,47 +13,54 @@
 </head>
 <body data-page="home">
 
-<body>
+
   <div class="page">
     <!-- HEADER -->
     <header>
-      <div class="container">
-        <nav class="nav">
-          <a href="index.html" class="logo">
-            <div class="logo-badge">&lt;/&gt;</div>
-            <div>
-              devAcademy
-              <span>E-Learning Πληροφορικής</span>
-            </div>
-          </a>
-
-          <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="courses.html">Courses</a>
-            <a href="books.html">Books</a>
-            <a href="about.html">About</a>
-          </div>
-
-          <div class="nav-cta">
-            <a href="register.html" class="btn btn-primary">Register</a>
-          </div>
-
-          <!-- Mobile toggle -->
-          <button class="mobile-toggle" id="mobileToggle" aria-label="Άνοιγμα μενού">
-            <span></span>
-          </button>
-        </nav>
-
-        <!-- Mobile menu -->
-        <div class="mobile-menu" id="mobileMenu">
-          <a href="index.html">Home</a>
-          <a href="courses.html">Courses</a>
-          <a href="books.html">Books</a>
-          <a href="about.html">About</a>
-          <a href="register.html" class="btn btn-primary">Register</a>
+  <div class="container">
+    <nav class="nav">
+      <a href="index.html" class="logo">
+        <div class="logo-badge">&lt;/&gt;</div>
+        <div>
+          devAcademy
+          <span>E-Learning Πληροφορικής</span>
         </div>
+      </a>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="courses.html">Courses</a>
+        <a href="books.html">Books</a>
+        <a href="about.html">About</a>
       </div>
-    </header>
+
+      <div class="nav-cta">
+        <a href="register.html" class="btn btn-primary">Register</a>
+      </div>
+
+      <!-- Mobile toggle -->
+      <button
+        class="mobile-toggle"
+        id="mobileToggle"
+        aria-label="Άνοιγμα μενού"
+        aria-expanded="false"
+        aria-controls="mobileMenu"
+      >
+        <span></span>
+      </button>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+      <a href="index.html">Home</a>
+      <a href="courses.html">Courses</a>
+      <a href="books.html">Books</a>
+      <a href="about.html">About</a>
+      <a href="register.html" class="btn btn-primary">Register</a>
+    </div>
+  </div>
+</header>
+
 
     <!-- MAIN -->
     <main>
@@ -336,6 +343,7 @@
 <script src="assets/js/forms/register-form.js" defer></script>
 <script src="assets/js/ui/responsive.js" defer></script>
 <script src="assets/js/app.js" defer></script>
+
 
 </body>
 </html>

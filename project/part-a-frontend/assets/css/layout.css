@@ -22,6 +22,7 @@ header {
   border-bottom: 1px solid rgba(148, 163, 184, 0.14);
 }
 
+/* NAV BAR */
 .nav {
   display: flex;
   align-items: center;
@@ -30,7 +31,7 @@ header {
   gap: 1rem;
 }
 
-/* MOBILE defaults (mobile first) */
+/* MOBILE FIRST */
 .nav-links {
   display: none;
   align-items: center;
@@ -41,12 +42,16 @@ header {
   display: none;
 }
 
-.mobile-toggle,
-.mobile-menu {
+/* στο κινητό: δείχνουμε μόνο το hamburger */
+.mobile-toggle {
   display: block;
 }
 
-/* βασικό layout hero + sections */
+.mobile-menu {
+  display: none;
+}
+
+/* hero & grids κλπ (όπως τα έχεις) */
 main {
   flex: 1;
   padding: 1.25rem 0 2.5rem;
@@ -63,18 +68,52 @@ main {
   gap: 1.75rem;
 }
 
-/* grid για tracks / cards / resources - mobile first */
 .tracks-grid,
 .cards-grid,
 .resource-list {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr; /* κινητό: 1 στήλη */
   gap: 0.9rem;
 }
 
-/* DESKTOP (>= 880px) */
-@media (min-width: 880px) {
+/* TABLET: 2 στήλες, full menu, χωρίς hamburger */
+@media (min-width: 600px) and (max-width: 879.98px) {
 
+  /* HERO: στο tablet να μείνει ΚΑΘΕΤΟ (1 στήλη) για να μην κολλάνε τα κουμπιά στο code window */
+  .hero-grid {
+    flex-direction: column;  /* <- αυτό είναι το κλειδί */
+    gap: 2rem;
+  }
+
+  .hero-left,
+  .hero-right {
+    flex: 1;
+  }
+
+  /* TRACKS / CARDS / RESOURCES: 2 στήλες, όπως ζητά η εκφώνηση */
+  .tracks-grid,
+  .cards-grid,
+  .resource-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .nav-links {
+    display: flex;
+  }
+
+  .nav-cta {
+    display: flex;
+  }
+
+  .mobile-toggle,
+  .mobile-menu {
+    display: none !important;
+  }
+}
+
+
+/* DESKTOP: 3 στήλες */
+@media (min-width: 880px) {
   .hero-grid {
     flex-direction: row;
   }
@@ -85,15 +124,11 @@ main {
   }
 
   .tracks-grid,
+  .cards-grid,
   .resource-list {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .cards-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  /* nav desktop */
   .nav-links {
     display: flex;
   }

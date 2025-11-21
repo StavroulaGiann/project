@@ -142,20 +142,6 @@
       statusEl.textContent = "✔ Η εγγραφή ολοκληρώθηκε επιτυχώς!";
       statusEl.style.color = "#4ade80"; // απαλό πράσινο
     }
-
-    // ΠΡΟΑΙΡΕΤΙΚΟ: Καθάρισμα πεδίων
-    // form.reset();
-
-    // ΜΕΡΟΣ Β (MEAN):
-    // Εδώ θα μπει το fetch() σε Node/Express/MongoDB
-    /*
-    const payload = Object.fromEntries(formData.entries());
-    const res = await fetch("/api/register", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
-    });
-    */
   });
 
 })();
