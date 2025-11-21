@@ -440,3 +440,248 @@ footer {
     align-items: flex-start;
   }
 }
+
+/*REGISTER*/
+/* // AICANARY: CSD-ELearn-2025 */
+/* REGISTER LAYOUT */
+
+.register-section {
+  padding: 2.5rem 0 3rem;
+}
+
+.register-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.register-info-card {
+  flex: 1;
+  padding: 1.5rem 1.7rem;
+  border-radius: var(--radius-xl);
+  background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), transparent 55%),
+              rgba(15, 23, 42, 0.95);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  box-shadow: var(--shadow-soft);
+}
+
+.register-info-card h1 {
+  font-size: 1.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.register-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.register-benefits {
+  list-style: none;
+  font-size: 0.9rem;
+  color: var(--text-main);
+  margin-bottom: 1rem;
+}
+
+.register-benefits li {
+  margin-bottom: 0.35rem;
+}
+
+.register-highlight {
+  font-size: 0.85rem;
+  color: var(--accent);
+  padding: 0.6rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.5);
+}
+
+/* Form card */
+.register-form-card {
+  flex: 1;
+  padding: 1.5rem 1.7rem;
+  border-radius: var(--radius-xl);
+  background: var(--card-bg);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-soft);
+}
+
+.register-form-card h2 {
+  font-size: 1.3rem;
+  margin-bottom: 0.25rem;
+}
+
+.register-form-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 1.1rem;
+}
+
+/* Form fields */
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.form-field label {
+  font-size: 0.85rem;
+  color: var(--text-main);
+}
+
+.form-field input,
+.form-field select {
+  background: rgba(15, 23, 42, 0.9);
+  border-radius: 0.6rem;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  padding: 0.5rem 0.7rem;
+  font-size: 0.9rem;
+  color: var(--text-main);
+}
+
+.form-field input:focus,
+.form-field select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.5);
+}
+
+.field-hint {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* // AICANARY: CSD-ELearn-2025 */
+.field-error {
+  display: block;          /* ώστε να πιάνει χώρο */
+  color: #f97373;
+  font-size: 0.75rem;
+  margin-top: 0.2rem;
+  min-height: 1rem;        /* κρατάει χώρο για το μήνυμα */
+}
+
+
+/* radio / checkbox */
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.checkbox-label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.form-field-inline {
+  align-items: flex-start;
+}
+
+/* actions */
+.form-actions {
+  margin-top: 0.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.form-alt {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.form-alt a {
+  color: var(--accent);
+}
+
+/* status message */
+.form-status {
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+}
+
+/* Responsive */
+@media (min-width: 880px) {
+  .register-grid {
+    flex-direction: row;
+  }
+
+  .form-row {
+    flex-direction: row;
+  }
+
+  .form-row .form-field {
+    flex: 1;
+  }
+}
+
+/* // AICANARY: CSD-ELearn-2025 */
+/* BASIC MODAL STYLES */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: none;
+}
+
+.modal.is-open {
+  display: block;
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-dialog {
+  background: var(--card-bg);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-soft);
+  padding: 1.5rem 1.7rem;
+  max-width: 460px;
+  width: 100%;
+}
+
+.modal-title {
+  font-size: 1.1rem;
+  margin-bottom: 0.6rem;
+}
+
+.modal-body {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.modal-close {
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 1rem;
+  cursor: pointer;
+  position: absolute;
+  top: 0.9rem;
+  right: 1rem;
+}
+
+/* // AICANARY: CSD-ELearn-2025 */
+.form-status {
+  margin-top: 0.8rem;
+  font-size: 0.9rem;
+  min-height: 1.2rem;
+  font-weight: 500;
+}

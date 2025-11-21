@@ -38,3 +38,20 @@ document.addEventListener("DOMContentLoaded", () => {
     // εδώ κώδικας ειδικά για index.html αν χρειαστεί
   }
 });
+
+// AICANARY: CSD-ELearn-2025
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (window.initMobileMenu) {
+    window.initMobileMenu();
+  }
+
+  const page = document.body.dataset.page;
+
+  if (page === "register") {
+    // προς το παρόν, όλη η λογική είναι στο register-form.js (IIFE),
+    // οπότε δεν χρειάζεται κάτι εδώ.
+    console.log("Register page loaded");
+  }
+});
+

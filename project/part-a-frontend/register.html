@@ -8,6 +8,269 @@
     <link rel="stylesheet" href="assets/css/theme.css" />
     <link rel="stylesheet" href="assets/css/layout.css" />
     <link rel="stylesheet" href="assets/css/components.css" />
-    
-
 </head>
+
+
+<body>
+  <div class="page">
+    <!-- HEADER -->
+    <header>
+      <div class="container">
+        <nav class="nav">
+          <a href="index.html" class="logo">
+            <div class="logo-badge">&lt;/&gt;</div>
+            <div>
+              devAcademy
+              <span>E-Learning Πληροφορικής</span>
+            </div>
+          </a>
+
+          <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="courses.html">Courses</a>
+            <a href="books.html">Books</a>
+            <a href="about.html">About</a>
+          </div>
+
+          <div class="nav-cta">
+            <a href="register.html" class="btn btn-primary">Register</a>
+          </div>
+
+          <!-- Mobile toggle -->
+          <button class="mobile-toggle" id="mobileToggle" aria-label="Άνοιγμα μενού">
+            <span></span>
+          </button>
+        </nav>
+
+        <!-- Mobile menu -->
+        <div class="mobile-menu" id="mobileMenu">
+          <a href="index.html">Home</a>
+          <a href="courses.html">Courses</a>
+          <a href="books.html">Books</a>
+          <a href="about.html">About</a>
+          <a href="register.html" class="btn btn-primary">Register</a>
+        </div>
+      </div>
+    </header>
+    <!-- // AICANARY: CSD-ELearn-2025 -->
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <title>devAcademy | Register</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="assets/css/reset.css" />
+  <link rel="stylesheet" href="assets/css/theme.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+</head>
+<body data-page="register">
+  <div class="page">
+
+    <main>
+      <div class="container">
+        <section class="register-section">
+          <div class="register-grid">
+            <!-- Αριστερή στήλη: info / benefits -->
+            <div class="register-info-card">
+              <h1>Κάνε εγγραφή στο devAcademy</h1>
+              <p class="register-subtitle">
+                Δημιούργησε δωρεάν λογαριασμό, διάλεξε μαθήματα Πληροφορικής
+                και ξεκίνα να χτίζεις portfolio projects.
+              </p>
+
+              <ul class="register-benefits">
+                <li>Πρόσβαση σε 15+ μαθήματα Python, Web, Δίκτυα, Βάσεις.</li>
+                <li>Projects &amp; quizzes με βαθμολογία.</li>
+                <li>Προσαρμοσμένα στην ύλη σχολών Πληροφορικής.</li>
+              </ul>
+
+              <div class="register-highlight">
+                Ιδανικό για φοιτητές, αποφοίτους και beginners που θέλουν
+                να ασχοληθούν επαγγελματικά με την Πληροφορική.
+              </div>
+            </div>
+
+            <!-- Δεξιά στήλη: φόρμα εγγραφής -->
+            <div class="register-form-card">
+              <h2>Δημιούργησε λογαριασμό</h2>
+              <p class="register-form-desc">
+                Συμπλήρωσε τα παρακάτω στοιχεία. Τα πεδία με * είναι υποχρεωτικά.
+              </p>
+
+              <form id="registerForm" novalidate>
+                <!-- Προσωπικά στοιχεία -->
+                <div class="form-row">
+                  <div class="form-field">
+                    <label for="firstName">Όνομα *</label>
+                    <input
+                      type="text"
+                      id="firstName"
+                      name="firstName"
+                      autocomplete="given-name"
+                      required
+                    />
+                    <p class="field-error" data-error-for="firstName"></p>
+                  </div>
+
+                  <div class="form-field">
+                    <label for="lastName">Επώνυμο *</label>
+                    <input
+                      type="text"
+                      id="lastName"
+                      name="lastName"
+                      autocomplete="family-name"
+                      required
+                    />
+                    <p class="field-error" data-error-for="lastName"></p>
+                  </div>
+                </div>
+
+                <!-- Email -->
+                <div class="form-field">
+                  <label for="email">Email *</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    autocomplete="email"
+                    required
+                  />
+                  <p class="field-hint">Θα χρησιμοποιηθεί για είσοδο στην πλατφόρμα.</p>
+                  <p class="field-error" data-error-for="email"></p>
+                </div>
+
+                <!-- Password + Confirm -->
+                <div class="form-row">
+                  <div class="form-field">
+                    <label for="password">Κωδικός πρόσβασης *</label>
+                    <input
+                      type="password"
+                      id="password"
+                      name="password"
+                      autocomplete="new-password"
+                      minlength="8"
+                      required
+                    />
+                    <p class="field-hint">
+                      Τουλάχιστον 8 χαρακτήρες, με γράμματα και αριθμούς.
+                    </p>
+                    <p class="field-error" data-error-for="password"></p>
+                  </div>
+
+                  <div class="form-field">
+                    <label for="confirmPassword">Επιβεβαίωση κωδικού *</label>
+                    <input
+                      type="password"
+                      id="confirmPassword"
+                      name="confirmPassword"
+                      autocomplete="new-password"
+                      required
+                    />
+                    <p class="field-error" data-error-for="confirmPassword"></p>
+                  </div>
+                </div>
+
+                <!-- Ρόλος χρήστη -->
+                <div class="form-field">
+                  <label>Ρόλος χρήστη *</label>
+                  <div class="radio-group">
+                    <label>
+                      <input
+                        type="radio"
+                        name="role"
+                        value="student"
+                        required
+                      />
+                      Φοιτητής / Σπουδαστής
+                    </label>
+                    <label>
+                      <input
+                        type="radio"
+                        name="role"
+                        value="graduate"
+                      />
+                      Απόφοιτος
+                    </label>
+                    <label>
+                      <input
+                        type="radio"
+                        name="role"
+                        value="professional"
+                      />
+                      Επαγγελματίας / self-taught
+                    </label>
+                  </div>
+                  <p class="field-error" data-error-for="role"></p>
+                </div>
+
+                <!-- Ενδιαφέρον -->
+<div class="form-field">
+  <label for="interest">Περιοχή ενδιαφέροντος *</label>
+  <select id="interest" name="interest" required>
+    <option value="">Επίλεξε...</option>
+    <option value="python">Python &amp; Algorithms</option>
+    <option value="web">Web Development</option>
+    <option value="networks">Networks</option>
+    <option value="databases">Databases &amp; SQL</option>
+  </select>
+  <p class="field-error" data-error-for="interest"></p>
+</div>
+
+
+                <!-- Όροι χρήσης -->
+                <div class="form-field form-field-inline">
+                  <label class="checkbox-label">
+                    <input
+                      type="checkbox"
+                      id="terms"
+                      name="termsAccepted"
+                      required
+                    />
+                    Αποδέχομαι τους όρους χρήσης και την πολιτική απορρήτου.
+                  </label>
+                  <p class="field-error" data-error-for="terms"></p>
+                </div>
+
+                <!-- Submit -->
+                <div class="form-actions">
+                  <button type="submit" class="btn btn-primary">
+                    Create your account
+                  </button>
+
+                <p class="form-alt">
+                  Έχεις ήδη λογαριασμό;
+                <a href="login.html">Σύνδεση</a>
+                </p>
+            </div>
+
+
+                <!-- Μήνυμα επιτυχίας / αποτυχίας (θα το ελέγχει το JS) -->
+                <div class="form-status" aria-live="polite"></div>
+              </form>
+              
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+        <div class="footer-inner">
+          <div class="footer-meta">
+            © 2025 devAcademy · E-Learning Πληροφορικής
+          </div>
+          
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="assets/js/ui/menu.js" defer></script>
+<script src="assets/js/forms/register-form.js" defer></script>
+<script src="app.js" defer></script>
+
+</body>
