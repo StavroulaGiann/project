@@ -2,12 +2,239 @@
 <html lang="el">
 <head>
   <meta charset="UTF-8" />
-  <title>devAcademy | E-Learning Πληροφορικής</title>
+  <title>devAcademy | About us</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="assets/css/reset.css" />
-    <link rel="stylesheet" href="assets/css/theme.css" />
-    <link rel="stylesheet" href="assets/css/layout.css" />
-    <link rel="stylesheet" href="assets/css/components.css" />
-    
-
+  <link rel="stylesheet" href="assets/css/reset.css" />
+  <link rel="stylesheet" href="assets/css/theme.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
 </head>
+
+<body data-page="about">
+  <div class="page">
+    <!-- HEADER -->
+    <header>
+      <div class="container">
+        <nav class="nav">
+          <a href="index.html" class="logo">
+            <div class="logo-badge">&lt;/&gt;</div>
+            <div>
+              devAcademy
+              <span>E-Learning Πληροφορικής</span>
+            </div>
+          </a>
+
+          <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="courses.html">Courses</a>
+            <a href="books.html">Books</a>
+            <a href="about.html">About</a>
+          </div>
+
+          <div class="nav-cta">
+            <a href="register.html" class="btn btn-primary">Register</a>
+          </div>
+
+          <button
+            class="mobile-toggle"
+            id="mobileToggle"
+            aria-label="Άνοιγμα μενού"
+            aria-expanded="false"
+            aria-controls="mobileMenu"
+          >
+            <span></span>
+          </button>
+        </nav>
+
+        <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+          <a href="index.html">Home</a>
+          <a href="courses.html">Courses</a>
+          <a href="books.html">Books</a>
+          <a href="about.html">About</a>
+          <a href="register.html" class="btn btn-primary">Register</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main>
+      <div class="container">
+        <!-- Hero / About πλατφόρμας -->
+        <section class="about-hero">
+          <div class="pill">
+            <span class="pill-dot"></span>
+            <span>About devAcademy</span>
+          </div>
+
+          <h1 class="section-title">Ποιοι είμαστε &amp; τι θέλουμε να πετύχουμε</h1>
+          <p class="section-subtitle">
+            Η devAcademy είναι μια φοιτητική e-learning πλατφόρμα Πληροφορικής,
+            σχεδιασμένη για να μοιάζει με πραγματική υπηρεσία online εκπαίδευσης:
+            μαθήματα, βιβλία, videos και εργαλεία που βοηθούν τον χρήστη να μάθει
+            με τον δικό του ρυθμό.
+          </p>
+        </section>
+
+        <!-- About content -->
+        <section class="about-layout">
+          <article class="about-block">
+            <h2 class="section-title">Η ιδέα πίσω από την devAcademy</h2>
+            <p class="section-subtitle">
+              Η ιδέα της πλατφόρμας γεννήθηκε από την ανάγκη να συνδυάσουμε
+              θεωρητικές γνώσεις από το Πανεπιστήμιο με μια πιο πρακτική,
+              hands-on εμπειρία. Θέλαμε ένα περιβάλλον όπου ο φοιτητής μπορεί
+              να βλέπει συγκεντρωμένα:
+            </p>
+            <ul class="about-list">
+              <li>μαθήματα προγραμματισμού, web, βάσεων δεδομένων &amp; ασφάλειας,</li>
+              <li>προτεινόμενα βιβλία που συνδέονται με κάθε μάθημα,</li>
+              <li>βασικά στατιστικά (επίπεδο, διάρκεια, δυσκολία, δημοτικότητα),</li>
+              <li>μια καθαρή, responsive διεπαφή που λειτουργεί σε όλων των ειδών τις συσκευές.</li>
+            </ul>
+            <p class="section-subtitle">
+              Στόχος μας δεν είναι να αντικαταστήσουμε ένα πραγματικό LMS,
+              αλλά να προσομοιώσουμε ρεαλιστικά μια υπηρεσία e-learning:
+              με κατηγορίες, φίλτρα, φόρμα εγγραφής, προτάσεις περιεχομένου
+              και βασική επεξεργασία δεδομένων αποκλειστικά στον browser.
+            </p>
+          </article>
+
+          <aside class="about-highlight">
+            <h3 class="section-title">Τι προσφέρει η πλατφόρμα</h3>
+            <ul class="about-tags">
+              <li>🎓 Μαθήματα Πληροφορικής σε πολλά επίπεδα</li>
+              <li>📚 Βιβλιοθήκη με επιλεγμένα τεχνικά βιβλία</li>
+              <li>🔎 Δυναμική αναζήτηση &amp; φιλτράρισμα περιεχομένου</li>
+              <li>📱 Mobile-first σχεδιασμός &amp; responsive layout</li>
+              <li>🧩 Δομημένα δεδομένα σε JavaScript (courses, books, videos)</li>
+              <li>✅ Ρεαλιστική φόρμα εγγραφής με ελέγχους &amp; σύνοψη</li>
+            </ul>
+          </aside>
+        </section>
+
+        <!-- Team section -->
+        <section class="team-section">
+          <h2 class="section-title">Η ομάδα ανάπτυξης</h2>
+          <p class="section-subtitle">
+            Η devAcademy υλοποιήθηκε από μια μικρή ομάδα φοιτητών με κοινό στοιχείο
+            την αγάπη για τον προγραμματισμό, τα καθαρά UI και τις καλά δομημένες εργασίες.
+            Παρακάτω παρουσιάζονται τα μέλη της ομάδας, με τα στοιχεία επικοινωνίας τους.
+            (Τα πραγματικά στοιχεία θα συμπληρωθούν κατά την τελική παράδοση.)
+          </p>
+
+          <div class="team-grid">
+            <!-- Member 1 -->
+            <article class="team-card">
+              <div class="team-photo">
+                <!-- ΕΔΩ ΘΑ ΒΑΛΕΙΣ ΦΩΤΟ -->
+                <img src="assets/img/team/member.png" alt="Σταυρούλα Γιαννακοπούλου" />
+              </div>
+
+              <div class="team-body">
+                <h3 class="team-name">Αριστείδης Καραγιαννάκος</h3>
+                <p class="team-role">Front-end development &amp; UX</p>
+
+                <dl class="team-meta">
+                  <div>
+                    <dt>Αριθμός Μητρώου</dt>
+                    <dd>ΑΜ: p3220066</dd>
+                  </div>
+                  <div>
+                    <dt>Email</dt>
+                    <dd><a href="mailto:ariskaragiannakos@gmail.com">ariskaragiannakos@gmail.com</a></dd>
+                  </div>
+                </dl>
+
+                <p class="team-bio">
+                  Ο Φοιτητής ειναι ενας πανεμοφρως πανεξυπνος 
+                  πανηψηλος με ολα τα καταλληλα προσοντα 
+                  ωστε να παρει 10 στο μαθημα.
+                </p>
+              </div>
+            </article>
+
+            <!-- Member 2 -->
+            <article class="team-card">
+              <div class="team-photo">
+                <!-- ΕΔΩ ΘΑ ΒΑΛΕΙΣ ΦΩΤΟ -->
+                <img src="assets/img/team/memberr.png" alt="Σταυρούλα Γιαννακοπούλου" />
+              </div>
+
+              <div class="team-body">
+                <h3 class="team-name">Σταυρούλα Γιαννακοπούλου</h3>
+                <p class="team-role">JavaScript logic &amp; data handling</p>
+
+                <dl class="team-meta">
+                  <div>
+                    <dt>Αριθμός Μητρώου</dt>
+                    <dd>ΑΜ: p0000000</dd>
+                  </div>
+                  <div>
+                    <dt>Email</dt>
+                    <dd><a href="mailto:student2@example.com">student2@example.com</a></dd>
+                  </div>
+                </dl>
+
+                <p class="team-bio">
+                  Η Φοιτητρια ειναι μια μετρια πρωσοπικοτης η οποια κοιμαται του 
+                  καλου καιρου καθε μεσσημερι το μοναδικο leverage το 
+                  οποιο μπορει να εχει ειναι οτι εχει καλο αγορι.
+                </p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- Contact / footer info -->
+        <section class="contact-section">
+          <h2 class="section-title">Επικοινωνία &amp; μελλοντική εξέλιξη</h2>
+          <p class="section-subtitle">
+            Για την παρούσα εργασία, η devAcademy λειτουργεί ως στατικός αλλά
+            δυναμικά συμπεριφερόμενος ιστότοπος, χωρίς backend. Σε μελλοντική επέκταση
+            θα μπορούσε να συνδεθεί με πραγματική βάση δεδομένων, σύστημα εγγραφών
+            χρηστών και ολοκληρωμένο dashboard παρακολούθησης προόδου.
+          </p>
+
+          <div class="contact-grid">
+            <div class="contact-card">
+              <h3 class="section-title">Στοιχεία ομάδας</h3>
+              <ul class="about-list">
+                <li>Τμήμα: Τμήμα Πληροφορικής</li>
+                <li>Μάθημα: Ανάπτυξη Εφαρμογών Ιστού</li>
+                <li>Εξάμηνο: Χειμερινό / 2024-2025</li>
+              </ul>
+            </div>
+
+            <div class="contact-card">
+              <h3 class="section-title">Επικοινωνία</h3>
+              <p class="section-subtitle">
+                Τα emails των μελών της ομάδας εμφανίζονται στις κάρτες παραπάνω.
+                Ο επισκέπτης μπορεί να χρησιμοποιήσει τη φόρμα εγγραφής για να
+                "δηλώσει ενδιαφέρον" για τα μαθήματα, ενώ σε πραγματική υλοποίηση
+                τα δεδομένα αυτά θα μπορούσαν να αποθηκευτούν σε server και να
+                χρησιμοποιηθούν για προσωποποιημένες προτάσεις περιεχομένου.
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+        <div class="footer-inner">
+          <div class="footer-meta">
+            © 2025 devAcademy · E-Learning Πληροφορικής
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/ui/menu.js" defer></script>
+  <script src="assets/js/ui/responsive.js" defer></script>
+  <script src="assets/js/app.js" defer></script>
+</body>
+</html>

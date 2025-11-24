@@ -2,12 +2,194 @@
 <html lang="el">
 <head>
   <meta charset="UTF-8" />
-  <title>devAcademy | E-Learning Πληροφορικής</title>
+  <title>devAcademy | Books</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="assets/css/reset.css" />
-    <link rel="stylesheet" href="assets/css/theme.css" />
-    <link rel="stylesheet" href="assets/css/layout.css" />
-    <link rel="stylesheet" href="assets/css/components.css" />
-    
-
+  <link rel="stylesheet" href="assets/css/reset.css" />
+  <link rel="stylesheet" href="assets/css/theme.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
 </head>
+
+<body data-page="books">
+  <div class="page">
+    <!-- HEADER -->
+    <header>
+      <div class="container">
+        <nav class="nav">
+          <a href="index.html" class="logo">
+            <div class="logo-badge">&lt;/&gt;</div>
+            <div>
+              devAcademy
+              <span>E-Learning Πληροφορικής</span>
+            </div>
+          </a>
+
+          <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="courses.html">Courses</a>
+            <a href="books.html">Books</a>
+            <a href="about.html">About</a>
+          </div>
+
+          <div class="nav-cta">
+            <a href="register.html" class="btn btn-primary">Register</a>
+          </div>
+
+          <button
+            class="mobile-toggle"
+            id="mobileToggle"
+            aria-label="Άνοιγμα μενού"
+            aria-expanded="false"
+            aria-controls="mobileMenu"
+          >
+            <span></span>
+          </button>
+        </nav>
+
+        <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+          <a href="index.html">Home</a>
+          <a href="courses.html">Courses</a>
+          <a href="books.html">Books</a>
+          <a href="about.html">About</a>
+          <a href="register.html" class="btn btn-primary">Register</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main>
+      <div class="container">
+        <!-- Επικεφαλίδα σελίδας -->
+        <section class="courses-page-header">
+          <div class="pill">
+            <span class="pill-dot"></span>
+            <span>Browse devAcademy library</span>
+          </div>
+
+          <h1 class="section-title">Βιβλιοθήκη devAcademy</h1>
+          <p class="section-subtitle">
+            Βιβλία Πληροφορικής που συμπληρώνουν τα online courses.
+          </p>
+        </section>
+
+        <!-- Layout: φίλτρα + λίστα βιβλίων -->
+        <section class="courses-layout">
+          <!-- Φίλτρα -->
+          <aside class="courses-filters" aria-label="Φίλτρα βιβλίων">
+            <h2 class="section-title">Φίλτρα</h2>
+            <p class="section-subtitle">
+              Φιλτράρισε τα βιβλία ανά κατηγορία, γλώσσα και διαθεσιμότητα.
+            </p>
+
+            <form id="booksFilters" class="filters-form">
+              <div class="field-group">
+                <label for="bookSearchInput">Αναζήτηση</label>
+                <input
+                  type="search"
+                  id="bookSearchInput"
+                  name="q"
+                  placeholder="Τίτλος, συγγραφέας ή λέξεις-κλειδιά..."
+                />
+              </div>
+
+              <div class="filters-row">
+                <div class="field-group">
+                  <label for="bookCategoryFilter">Κατηγορία</label>
+                  <select id="bookCategoryFilter" name="category">
+                    <option value="">Όλες</option>
+                    <option value="programming">Programming</option>
+                    <option value="web">Web</option>
+                    <option value="networks">Networks</option>
+                    <option value="security">Security</option>
+                    <option value="databases">Databases</option>
+                    <option value="tools">Tools</option>
+                    <option value="devops">DevOps</option>
+                  </select>
+                </div>
+
+                <div class="field-group">
+                  <label for="bookLevelFilter">Επίπεδο</label>
+                  <select id="bookLevelFilter" name="level">
+                    <option value="">Όλα</option>
+                    <option value="beginner">Beginner</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="advanced">Advanced</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="filters-row">
+                <div class="field-group">
+                  <label for="bookAvailabilityFilter">Διαθεσιμότητα</label>
+                  <select id="bookAvailabilityFilter" name="availability">
+                    <option value="">Όλα</option>
+                    <option value="available">Μόνο διαθέσιμα</option>
+                  </select>
+                </div>
+
+                <div class="field-group">
+                  <label for="bookLanguageFilter">Γλώσσα</label>
+                  <select id="bookLanguageFilter" name="language">
+                    <option value="">Όλες</option>
+                    <option value="GR">Ελληνικά</option>
+                    <option value="EN">Αγγλικά</option>
+                  </select>
+                </div>
+              </div>
+            </form>
+          </aside>
+
+          <!-- Λίστα βιβλίων -->
+          <div class="courses-list">
+            <div class="courses-list-header">
+              <div>
+                <h2 class="section-title">Όλα τα βιβλία</h2>
+                <p class="section-subtitle">
+                  <span id="booksCount">0 books</span> στη βιβλιοθήκη.
+                </p>
+              </div>
+
+              <div class="courses-sort">
+                <label for="bookSortBy">Ταξινόμηση</label>
+                <select id="bookSortBy" name="sort">
+                  <option value="featured">Προτεινόμενα</option>
+                  <option value="rating">Καλύτερη αξιολόγηση</option>
+                  <option value="newest">Νεότερα</option>
+                  <option value="pages">Σελίδες</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Grid με κάρτες βιβλίων -->
+            <div id="booksGrid" class="cards-grid">
+            </div>
+
+            <!-- Empty state -->
+            <div id="booksEmpty" class="empty-state" hidden>
+              Δεν βρέθηκαν βιβλία για αυτά τα φίλτρα.
+              Δοκίμασε να αλλάξεις κατηγορία ή λέξεις-κλειδιά.
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+        <div class="footer-inner">
+          <div class="footer-meta">
+            © 2025 devAcademy · E-Learning Πληροφορικής
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/data/books.js" defer></script>
+  <script src="assets/js/ui/menu.js" defer></script>
+  <script src="assets/js/ui/responsive.js" defer></script>
+  <script src="assets/js/app.js" defer></script>
+</body>
+</html>
