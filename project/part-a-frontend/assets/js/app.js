@@ -1,47 +1,154 @@
 // AICANARY: CSD-ELearn-2025
 
 document.addEventListener("DOMContentLoaded", () => {
-  // 1. ενεργοποιεί το mobile menu
+  // 1. Mobile menu
   if (window.initMobileMenu) {
     window.initMobileMenu();
   }
 
-  // 2. βρίσκει σελίδα
+  // 2. 3D tilt σε κάρτες σε ΟΛΕΣ τις σελίδες
+  initGlobalTiltCards();
+  initScrollReveal();
+  // 3. Routing ανά σελίδα
   const page = document.body.dataset.page;
 
   if (page === "home") {
-    // index.html (hero, featured courses, etc.)
-    // εδώ κώδικας ειδικά για index.html αν χρειαστεί
+    // Αν αργότερα θες κάτι έξτρα μόνο για index, βάλ' το εδώ
   }
 
   if (page === "courses") {
-    // φόρτωσε μαθήματα από courses.js
     initCoursesPage();
   }
 
   if (page === "books") {
-  initBooksPage();
-}
+    initBooksPage();
+  }
 
-if (page === "books-details") {
-  initBookDetailsPage();
-}
+  if (page === "books-details") {
+    initBookDetailsPage();
+  }
 
   if (page === "courses-details") {
-  initCourseDetailsPage();
+    initCourseDetailsPage();
   }
 
   if (page === "register") {
-    // προς το παρόν, όλη η λογική είναι στο register-form.js (IIFE),
-    // οπότε δεν χρειάζεται κάτι εδώ.
     console.log("Register page loaded");
   }
 });
 
 
+
+
 // =============================
-// bokks details pages
-// 
+// Scroll reveal για κάρτες & sections
+// =============================
+
+function initScrollReveal() {
+  const selectors = [
+    ".hero",
+    ".section-header",
+    ".tracks-grid .track-card",
+    ".cards-grid .track-card",
+    ".cards-grid .course-card",
+    ".resource-list .track-card",
+    ".course-card",
+    ".team-card",
+    ".about-block",
+    ".about-highlight",
+    ".contact-card",
+    ".cta"
+  ];
+
+  const elements = document.querySelectorAll(selectors.join(","));
+  if (!elements.length) return;
+
+  const prefersReducedMotion = window.matchMedia &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Αν ο χρήστης δεν θέλει animations, τα εμφανίζουμε όλα κατευθείαν
+  if (prefersReducedMotion) {
+    elements.forEach((el) => el.classList.add("is-visible"));
+    return;
+  }
+
+  // IntersectionObserver για reveal όταν μπαίνει στο viewport
+  const observer = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          obs.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.15
+    }
+  );
+
+  elements.forEach((el) => {
+    el.classList.add("reveal-on-scroll");
+    observer.observe(el);
+  });
+}
+
+
+// =============================
+// GLOBAL 3D Tilt Effect
+// =============================
+
+function initGlobalTiltCards() {
+  const selectors = [
+    ".track-card",
+    ".course-card",
+    ".resource-list .track-card",
+    ".team-card",
+    ".about-block",
+    ".about-highlight",
+    ".contact-card",
+    ".cta"
+  ];
+
+  const cards = document.querySelectorAll(selectors.join(","));
+  if (!cards.length) return;
+
+  const maxRotate = 10; // μοίρες
+
+  cards.forEach((card) => {
+    card.classList.add("tilt-card");
+
+    card.addEventListener("mousemove", (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      const midX = rect.width / 2;
+      const midY = rect.height / 2;
+
+      const rotateY = ((x - midX) / midX) * maxRotate * -1;
+      const rotateX = ((y - midY) / midY) * maxRotate;
+
+      card.style.transform = `
+        perspective(700px)
+        rotateX(${rotateX.toFixed(2)}deg)
+        rotateY(${rotateY.toFixed(2)}deg)
+        translateY(-2px)
+      `;
+      card.classList.add("is-tilting");
+    });
+
+    card.addEventListener("mouseleave", () => {
+      card.style.transform = "perspective(700px) rotateX(0deg) rotateY(0deg)";
+      card.classList.remove("is-tilting");
+    });
+  });
+}
+
+
+// =============================
+// Books details page
+// =============================
 
 function initBookDetailsPage() {
   if (!window.BOOKS || !Array.isArray(window.BOOKS)) {
@@ -94,16 +201,8 @@ function initBookDetailsPage() {
       <article class="course-card">
         <div class="course-badges">
           ${levelLabel ? `<span class="course-badge">${levelLabel}</span>` : ""}
-          ${
-            book.isNew
-              ? `<span class="course-badge">New</span>`
-              : ""
-          }
-          ${
-            book.popular
-              ? `<span class="course-badge">Popular</span>`
-              : ""
-          }
+          ${book.isNew ? `<span class="course-badge">New</span>` : ""}
+          ${book.popular ? `<span class="course-badge">Popular</span>` : ""}
         </div>
 
         <div class="course-meta" style="margin-top:0.75rem;">
@@ -112,11 +211,7 @@ function initBookDetailsPage() {
               ? `<span>✍️ ${escapeHtml(book.author)}</span>`
               : ""
           }
-          ${
-            book.year
-              ? `<span>📅 ${book.year}</span>`
-              : ""
-          }
+          ${book.year ? `<span>📅 ${book.year}</span>` : ""}
           ${
             book.pages
               ? `<span>📖 ${book.pages} σελίδες</span>`
@@ -124,7 +219,9 @@ function initBookDetailsPage() {
           }
           ${
             book.language
-              ? `<span>🌐 ${book.language === "GR" ? "Ελληνικά" : "Αγγλικά"}</span>`
+              ? `<span>🌐 ${
+                  book.language === "GR" ? "Ελληνικά" : "Αγγλικά"
+                }</span>`
               : ""
           }
         </div>
@@ -151,11 +248,9 @@ function initBookDetailsPage() {
 }
 
 
-
-
 // =============================
-// bokks pages
-// 
+// Books list page
+// =============================
 
 function initBooksPage() {
   if (!window.BOOKS || !Array.isArray(window.BOOKS)) {
@@ -374,7 +469,7 @@ function initBooksPage() {
 
 
 // =============================
-// δεταιλ Courses page
+// Course details page
 // =============================
 
 function initCourseDetailsPage() {
@@ -427,21 +522,9 @@ function initCourseDetailsPage() {
     <section class="courses-details-layout" style="margin:1.5rem 0 3rem; display:grid; gap:1.5rem;">
       <article class="course-card">
         <div class="course-badges">
-          ${
-            levelLabel
-              ? `<span class="course-badge">${levelLabel}</span>`
-              : ""
-          }
-          ${
-            course.isNew
-              ? `<span class="course-badge">New</span>`
-              : ""
-          }
-          ${
-            course.popular
-              ? `<span class="course-badge">Popular</span>`
-              : ""
-          }
+          ${levelLabel ? `<span class="course-badge">${levelLabel}</span>` : ""}
+          ${course.isNew ? `<span class="course-badge">New</span>` : ""}
+          ${course.popular ? `<span class="course-badge">Popular</span>` : ""}
         </div>
 
         ${
@@ -455,21 +538,13 @@ function initCourseDetailsPage() {
         }
 
         <div class="course-meta" style="margin-top:0.75rem;">
-          ${
-            course.duration
-              ? `<span>⏱ ${course.duration}</span>`
-              : ""
-          }
+          ${course.duration ? `<span>⏱ ${course.duration}</span>` : ""}
           ${
             course.lessonsCount
               ? `<span>📚 ${course.lessonsCount} lessons</span>`
               : ""
           }
-          ${
-            course.mode
-              ? `<span>💻 ${course.mode}</span>`
-              : ""
-          }
+          ${course.mode ? `<span>💻 ${course.mode}</span>` : ""}
         </div>
 
         <div class="course-actions" style="margin-top:1.25rem;">
@@ -489,8 +564,9 @@ function initCourseDetailsPage() {
   `;
 }
 
+
 // =============================
-// Courses page
+// Courses list page
 // =============================
 
 function initCoursesPage() {
@@ -518,7 +594,6 @@ function initCoursesPage() {
   function applyFiltersAndRender() {
     let filtered = window.COURSES.slice();
 
-    // 🔎 Αναζήτηση (τίτλος, υπότιτλος, περιγραφή, tags)
     const q = (searchInput?.value || "").trim().toLowerCase();
     if (q) {
       filtered = filtered.filter((course) => {
@@ -530,36 +605,30 @@ function initCoursesPage() {
           (course.shortDescription || "") +
           " " +
           (Array.isArray(course.tags) ? course.tags.join(" ") : "");
-
         return text.toLowerCase().includes(q);
       });
     }
 
-    // 📂 Κατηγορία
     const category = categoryFilter?.value || "";
     if (category) {
       filtered = filtered.filter((c) => c.category === category);
     }
 
-    // 🎯 Επίπεδο
     const level = levelFilter?.value || "";
     if (level) {
       filtered = filtered.filter((c) => c.level === level);
     }
 
-    // ✅ Διαθεσιμότητα
     const availability = availabilityFilter?.value || "";
     if (availability === "available") {
       filtered = filtered.filter((c) => c.available === true);
     }
 
-    // 🌐 Γλώσσα
     const language = languageFilter?.value || "";
     if (language) {
       filtered = filtered.filter((c) => c.language === language);
     }
 
-    // 🔽 Ταξινόμηση
     const sortBy = sortBySelect?.value || "featured";
     filtered = sortCourses(filtered, sortBy);
 
@@ -596,148 +665,144 @@ function initCoursesPage() {
   }
 
   function renderCourses(courses) {
-  grid.innerHTML = "";
+    grid.innerHTML = "";
 
-  if (!courses.length) {
-    if (emptyEl) emptyEl.hidden = false;
-    if (countEl) countEl.textContent = "0 courses";
-    return;
-  }
-
-  if (emptyEl) emptyEl.hidden = true;
-  if (countEl) {
-    countEl.textContent =
-      courses.length === 1 ? "1 course" : `${courses.length} courses`;
-  }
-
-  courses.forEach((course) => {
-    const card = document.createElement("article");
-    card.className = "course-card";
-
-    const categoryLabel = mapCategory(course.category);
-    const levelLabel = mapLevel(course.level);
-
-    const badges = [];
-
-    if (categoryLabel) {
-      badges.push(
-        `<span class="course-badge course-badge--primary">${categoryLabel}</span>`
-      );
+    if (!courses.length) {
+      if (emptyEl) emptyEl.hidden = false;
+      if (countEl) countEl.textContent = "0 courses";
+      return;
     }
 
-    if (levelLabel) {
-      badges.push(`<span class="course-badge">${levelLabel}</span>`);
+    if (emptyEl) emptyEl.hidden = true;
+    if (countEl) {
+      countEl.textContent =
+        courses.length === 1 ? "1 course" : `${courses.length} courses`;
     }
 
-    if (course.isNew) {
-      badges.push(`<span class="course-badge">New</span>`);
-    }
+    courses.forEach((course) => {
+      const card = document.createElement("article");
+      card.className = "course-card";
 
-    if (course.popular) {
-      badges.push(`<span class="course-badge">Popular</span>`);
-    }
+      const categoryLabel = mapCategory(course.category);
+      const levelLabel = mapLevel(course.level);
 
-    const ratingHtml =
-      course.rating && course.ratingCount
-        ? `<span class="course-rating">
-            <strong>★ ${course.rating.toFixed(1)}</strong> (${course.ratingCount})
-          </span>`
-        : "";
+      const badges = [];
 
-    const metaParts = [];
-
-    if (course.duration) {
-      metaParts.push(`⏱ ${course.duration}`);
-    }
-    if (course.lessonsCount) {
-      metaParts.push(`📚 ${course.lessonsCount} lessons`);
-    }
-    if (course.mode) {
-      metaParts.push(`💻 ${course.mode}`);
-    }
-
-    const metaHtml = metaParts.map((txt) => `<span>${txt}</span>`).join("");
-
-    // 🔽 ΕΔΩ φτιάχνουμε το HTML της κάρτας
-    card.innerHTML = `
-      <div class="course-card-header">
-        <div>
-          <h3 class="course-title">${escapeHtml(course.title || "")}</h3>
-          ${
-            course.subtitle
-              ? `<p class="course-subtitle">${escapeHtml(course.subtitle)}</p>`
-              : ""
-          }
-          <div class="course-badges">
-            ${badges.join("")}
-          </div>
-        </div>
-      </div>
-
-      ${
-        course.shortDescription
-          ? `<p class="section-subtitle" style="margin-top:0.5rem;">${escapeHtml(
-              course.shortDescription
-            )}</p>`
-          : ""
+      if (categoryLabel) {
+        badges.push(
+          `<span class="course-badge course-badge--primary">${categoryLabel}</span>`
+        );
       }
 
-      <div class="course-meta">
-        ${metaHtml}
-      </div>
+      if (levelLabel) {
+        badges.push(`<span class="course-badge">${levelLabel}</span>`);
+      }
 
-      <div class="course-actions">
-        <button
-          type="button"
-          class="btn btn-primary course-more-btn"
-          data-course-id="${course.id}"
-        >
-          Περισσότερα
-        </button>
-        ${ratingHtml}
-      </div>
-    `;
+      if (course.isNew) {
+        badges.push(`<span class="course-badge">New</span>`);
+      }
 
-    // ➕ ΕΔΩ δένουμε το κουμπί «Περισσότερα» με το modal
-    const moreBtn = card.querySelector(".course-more-btn");
-    if (moreBtn && typeof window.openModal === "function") {
-      moreBtn.addEventListener("click", () => {
-        openModal(`
-          <h2 class="section-title">${escapeHtml(course.title || "")}</h2>
-          ${
-            course.subtitle
-              ? `<p class="section-subtitle">${escapeHtml(course.subtitle)}</p>`
-              : ""
-          }
+      if (course.popular) {
+        badges.push(`<span class="course-badge">Popular</span>`);
+      }
 
-          <div class="course-meta" style="margin-top:0.75rem;">
-            ${metaHtml}
+      const ratingHtml =
+        course.rating && course.ratingCount
+          ? `<span class="course-rating">
+              <strong>★ ${course.rating.toFixed(1)}</strong> (${course.ratingCount})
+            </span>`
+          : "";
+
+      const metaParts = [];
+
+      if (course.duration) {
+        metaParts.push(`⏱ ${course.duration}`);
+      }
+      if (course.lessonsCount) {
+        metaParts.push(`📚 ${course.lessonsCount} lessons`);
+      }
+      if (course.mode) {
+        metaParts.push(`💻 ${course.mode}`);
+      }
+
+      const metaHtml = metaParts.map((txt) => `<span>${txt}</span>`).join("");
+
+      card.innerHTML = `
+        <div class="course-card-header">
+          <div>
+            <h3 class="course-title">${escapeHtml(course.title || "")}</h3>
+            ${
+              course.subtitle
+                ? `<p class="course-subtitle">${escapeHtml(course.subtitle)}</p>`
+                : ""
+            }
+            <div class="course-badges">
+              ${badges.join("")}
+            </div>
           </div>
+        </div>
 
-          <p class="section-subtitle" style="margin-top:0.75rem;">
-            ${escapeHtml(course.longDescription || course.shortDescription || "")}
-          </p>
+        ${
+          course.shortDescription
+            ? `<p class="section-subtitle" style="margin-top:0.5rem;">${escapeHtml(
+                course.shortDescription
+              )}</p>`
+            : ""
+        }
 
-          <div class="course-actions" style="margin-top:1.25rem; justify-content:flex-start; gap:0.75rem;">
-            <a href="courses-details.html?id=${encodeURIComponent(
-              course.id
-            )}" class="btn btn-primary">
-              Πλήρεις λεπτομέρειες
-            </a>
-            <a href="register.html" class="btn">
-              Εγγραφή στο μάθημα
-            </a>
-          </div>
-        `);
-      });
-    }
+        <div class="course-meta">
+          ${metaHtml}
+        </div>
 
-    grid.appendChild(card);
-  });
-}
+        <div class="course-actions">
+          <button
+            type="button"
+            class="btn btn-primary course-more-btn"
+            data-course-id="${course.id}"
+          >
+            Περισσότερα
+          </button>
+          ${ratingHtml}
+        </div>
+      `;
 
+      const moreBtn = card.querySelector(".course-more-btn");
+      if (moreBtn && typeof window.openModal === "function") {
+        moreBtn.addEventListener("click", () => {
+          openModal(`
+            <h2 class="section-title">${escapeHtml(course.title || "")}</h2>
+            ${
+              course.subtitle
+                ? `<p class="section-subtitle">${escapeHtml(course.subtitle)}</p>`
+                : ""
+            }
 
-  // Event listeners στα φίλτρα
+            <div class="course-meta" style="margin-top:0.75rem;">
+              ${metaHtml}
+            </div>
+
+            <p class="section-subtitle" style="margin-top:0.75rem;">
+              ${escapeHtml(course.longDescription || course.shortDescription || "")}
+            </p>
+
+            <div class="course-actions" style="margin-top:1.25rem; justify-content:flex-start; gap:0.75rem;">
+              <a href="courses-details.html?id=${encodeURIComponent(
+                course.id
+              )}" class="btn btn-primary">
+                Πλήρεις λεπτομέρειες
+              </a>
+              <a href="register.html" class="btn">
+                Εγγραφή στο μάθημα
+              </a>
+            </div>
+          `);
+        });
+      }
+
+      grid.appendChild(card);
+    });
+  }
+
   if (searchInput) {
     searchInput.addEventListener("input", applyFiltersAndRender);
   }
@@ -757,9 +822,9 @@ function initCoursesPage() {
     sortBySelect.addEventListener("change", applyFiltersAndRender);
   }
 
-  // πρώτη φόρτωση
   applyFiltersAndRender();
 }
+
 
 // =============================
 // Helpers
