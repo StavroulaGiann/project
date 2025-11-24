@@ -232,71 +232,7 @@
   box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.35);
 }
 
-/* // AICANARY: CSD-ELearn-2025 */
-/* EXTERNAL WRAPPER */
-.code-window {
-  background: rgba(15, 23, 42, 0.85);
-  border: 1px solid rgba(148, 163, 184, 0.20);
-  border-radius: 22px;
-  padding: 1rem 1.2rem;
-  box-shadow: 0 25px 50px rgba(0,0,0,0.55);
-  backdrop-filter: blur(25px);
-  max-width: 520px;
-}
 
-/* HEADER (τα “traffic lights”) */
-.code-header {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-  font-size: 0.85rem;
-  color: var(--text-muted);
-}
-
-.code-header .dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-}
-
-.dot.red { background: #ff5f56; }
-.dot.yellow { background: #ffbd2e; }
-.dot.green { background: #27c93f; }
-
-/* CODE AREA */
-.code-block {
-  background: rgba(2, 6, 23, 0.6);
-  padding: 1rem 1rem;
-  border-radius: 14px;
-  border: 1px solid rgba(148,163,184,0.15);
-  font-family: "Fira Code", "JetBrains Mono", monospace;
-  font-size: 0.9rem;
-  line-height: 1.45rem;
-  color: #d1d5db;
-  overflow-x: auto;
-  white-space: pre;
-}
-
-/* TAG κάτω από το code window */
-.code-tag {
-  margin-top: 0.8rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  padding: 0.35rem 0.85rem;
-  font-size: 0.85rem;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.15);
-}
-
-
-
-
-
-/* // AICANARY: CSD-ELearn-2025 */
-/* FORCE HEADER + MENU VISIBLE */
 
 header {
   position: sticky;
@@ -310,10 +246,6 @@ header {
 }
 
 
-
-
-
-/* // AICANARY: CSD-ELearn-2025 */
 .cta {
   margin-top: 1.6rem;
   display: inline-block;
@@ -789,7 +721,11 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
+  height: 100%;
+  align-items: stretch;   
 }
+
+
 
 .course-card-header {
   display: flex;
@@ -849,7 +785,7 @@ footer {
 }
 
 .course-actions {
-  margin-top: 0.75rem;
+  margin-top: auto;  
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1042,6 +978,20 @@ footer {
   transform: translateY(0);
 }
 
+
+.hero-code-image {
+  max-width: 750px;  /* ή 800px, ή όσο θες */
+  margin-top: 1.5rem; 
+}
+
+.hero-code-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 22px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+}
 
 
 
