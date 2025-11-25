@@ -401,6 +401,7 @@ main {
     flex-direction: row;
     align-items: flex-start;
     gap: 2rem;
+    
   }
 
   .about-block {

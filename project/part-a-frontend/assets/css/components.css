@@ -434,7 +434,8 @@ footer {
 /* Πεδία φόρμας εγγραφής – ίδια αισθητική με .register-highlight */
 .register-form-card input,
 .register-form-card select {
-  background: rgba(56, 189, 248, 0.08);
+  background-color: #ae8bcae0;   /* πολύ σκούρο μπλε */
+  color: #898b8f;  
   border-radius: 999px; /* pill */
   border: 1px solid rgba(56, 189, 248, 0.5);
   padding: 0.5rem 0.9rem;
