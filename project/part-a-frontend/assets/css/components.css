@@ -431,15 +431,25 @@ footer {
   color: var(--text-main);
 }
 
-.form-field input,
-.form-field select {
-  background: rgba(15, 23, 42, 0.9);
-  border-radius: 0.6rem;
-  border: 1px solid rgba(148, 163, 184, 0.4);
-  padding: 0.5rem 0.7rem;
+/* Πεδία φόρμας εγγραφής – ίδια αισθητική με .register-highlight */
+.register-form-card input,
+.register-form-card select {
+  background: rgba(56, 189, 248, 0.08);
+  border-radius: 999px; /* pill */
+  border: 1px solid rgba(56, 189, 248, 0.5);
+  padding: 0.5rem 0.9rem;
   font-size: 0.9rem;
   color: var(--text-main);
 }
+
+/* focus state παραμένει όπως το είχες */
+.register-form-card input:focus,
+.register-form-card select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.5);
+}
+
 
 .form-field input:focus,
 .form-field select:focus {

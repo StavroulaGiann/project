@@ -51,7 +51,7 @@ header {
   display: none;
 }
 
-/* hero & grids κλπ (όπως τα έχεις) */
+/* MAIN LAYOUT */
 main {
   flex: 1;
   padding: 1.25rem 0 2.5rem;
@@ -76,12 +76,15 @@ main {
   gap: 0.9rem;
 }
 
-/* TABLET: 2 στήλες, full menu, χωρίς hamburger */
+/* ===========================
+   TABLET: 2 στήλες, full menu
+   =========================== */
 @media (min-width: 600px) and (max-width: 879.98px) {
 
-  /* HERO: στο tablet να μείνει ΚΑΘΕΤΟ (1 στήλη) για να μην κολλάνε τα κουμπιά στο code window */
+  /* HERO: στο tablet να μείνει ΚΑΘΕΤΟ (1 στήλη)
+     για να μην κολλάνε τα κουμπιά στο code window */
   .hero-grid {
-    flex-direction: column;  /* <- αυτό είναι το κλειδί */
+    flex-direction: column;
     gap: 2rem;
   }
 
@@ -90,7 +93,7 @@ main {
     flex: 1;
   }
 
-  /* TRACKS / CARDS / RESOURCES: 2 στήλες, όπως ζητά η εκφώνηση */
+  /* TRACKS / CARDS / RESOURCES: 2 στήλες */
   .tracks-grid,
   .cards-grid,
   .resource-list {
@@ -111,8 +114,9 @@ main {
   }
 }
 
-
-/* DESKTOP: 3 στήλες */
+/* ===========================
+   DESKTOP: 3 στήλες
+   =========================== */
 @media (min-width: 880px) {
   .hero-grid {
     flex-direction: row;
@@ -141,7 +145,9 @@ main {
   .mobile-menu {
     display: none !important;
   }
-  /* ===========================
+}
+
+/* ===========================
    Courses page layout
    =========================== */
 
@@ -190,7 +196,6 @@ main {
 }
 
 /* Φόρμα φίλτρων */
-
 .filters-form {
   display: flex;
   flex-direction: column;
@@ -315,7 +320,11 @@ main {
 }
 
 .about-highlight {
-  background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), transparent 55%);
+  background: radial-gradient(
+    circle at top left,
+    rgba(56, 189, 248, 0.18),
+    transparent 55%
+  );
   border-radius: var(--radius-xl);
   padding: 1.25rem 1.5rem;
   border: 1px solid rgba(148, 163, 184, 0.35);
@@ -342,7 +351,6 @@ main {
 }
 
 /* Team & contact layout */
-
 .team-section {
   margin: 2.5rem 0 2.5rem;
 }
@@ -363,7 +371,7 @@ main {
   margin-top: 1rem;
 }
 
-/* Tablet */
+/* Tablet layout για About/Team/Contact */
 @media (min-width: 600px) and (max-width: 879.98px) {
   .about-layout {
     flex-direction: row;
@@ -387,7 +395,7 @@ main {
   }
 }
 
-/* Desktop */
+/* Desktop layout για About/Team/Contact */
 @media (min-width: 880px) {
   .about-layout {
     flex-direction: row;
@@ -410,7 +418,4 @@ main {
   .contact-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-}
-
-
 }

@@ -14,7 +14,7 @@
 <body>
   <div class="page">
     <!-- HEADER -->
-       <header>
+  <header>
   <div class="container">
     <nav class="nav">
       <a href="index.html" class="logo">
@@ -58,22 +58,6 @@
     </div>
   </div>
 </header>
-    <!-- // AICANARY: CSD-ELearn-2025 -->
-<!DOCTYPE html>
-<html lang="el">
-<head>
-  <meta charset="UTF-8" />
-  <title>devAcademy | Register</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <link rel="stylesheet" href="assets/css/reset.css" />
-  <link rel="stylesheet" href="assets/css/theme.css" />
-  <link rel="stylesheet" href="assets/css/layout.css" />
-  <link rel="stylesheet" href="assets/css/components.css" />
-</head>
-<body data-page="register">
-  <div class="page">
-
     <main>
       <div class="container">
         <section class="register-section">
@@ -105,156 +89,198 @@
                 Συμπλήρωσε τα παρακάτω στοιχεία. Τα πεδία με * είναι υποχρεωτικά.
               </p>
 
-              <form id="registerForm" novalidate>
-                <!-- Προσωπικά στοιχεία -->
-                <div class="form-row">
-                  <div class="form-field">
-                    <label for="firstName">Όνομα *</label>
-                    <input
-                      type="text"
-                      id="firstName"
-                      name="firstName"
-                      autocomplete="given-name"
-                      required
-                    />
-                    <p class="field-error" data-error-for="firstName"></p>
-                  </div>
+<form id="registerForm" novalidate class="register-form">
+  <!-- Βασικά στοιχεία χρήστη -->
+  <div class="form-section">
+    <h2 class="section-title">Βασικά στοιχεία</h2>
+    <div class="form-grid">
+      <div class="field-group">
+        <label for="firstName">Όνομα*</label>
+        <input
+          type="text"
+          id="firstName"
+          name="firstName"
+          required
+        />
+        <p class="field-error" data-error-for="firstName"></p>
+      </div>
 
-                  <div class="form-field">
-                    <label for="lastName">Επώνυμο *</label>
-                    <input
-                      type="text"
-                      id="lastName"
-                      name="lastName"
-                      autocomplete="family-name"
-                      required
-                    />
-                    <p class="field-error" data-error-for="lastName"></p>
-                  </div>
-                </div>
+      <div class="field-group">
+        <label for="lastName">Επώνυμο*</label>
+        <input
+          type="text"
+          id="lastName"
+          name="lastName"
+          required
+        />
+        <p class="field-error" data-error-for="lastName"></p>
+      </div>
 
-                <!-- Email -->
-                <div class="form-field">
-                  <label for="email">Email *</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    autocomplete="email"
-                    required
-                  />
-                  <p class="field-hint">Θα χρησιμοποιηθεί για είσοδο στην πλατφόρμα.</p>
-                  <p class="field-error" data-error-for="email"></p>
-                </div>
+      <div class="field-group">
+        <label for="email">Email*</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+        />
+        <p class="field-error" data-error-for="email"></p>
+      </div>
 
-                <!-- Password + Confirm -->
-                <div class="form-row">
-                  <div class="form-field">
-                    <label for="password">Κωδικός πρόσβασης *</label>
-                    <input
-                      type="password"
-                      id="password"
-                      name="password"
-                      autocomplete="new-password"
-                      minlength="8"
-                      required
-                    />
-                    <p class="field-hint">
-                      Τουλάχιστον 8 χαρακτήρες, με γράμματα και αριθμούς.
-                    </p>
-                    <p class="field-error" data-error-for="password"></p>
-                  </div>
+      <div class="field-group">
+        <label for="birthDate">Ημερομηνία γέννησης*</label>
+        <input
+          type="date"
+          id="birthDate"
+          name="birthDate"
+          required
+        />
+        <p class="field-error" data-error-for="birthDate"></p>
+      </div>
+    </div>
+  </div>
 
-                  <div class="form-field">
-                    <label for="confirmPassword">Επιβεβαίωση κωδικού *</label>
-                    <input
-                      type="password"
-                      id="confirmPassword"
-                      name="confirmPassword"
-                      autocomplete="new-password"
-                      required
-                    />
-                    <p class="field-error" data-error-for="confirmPassword"></p>
-                  </div>
-                </div>
+  <!-- Στοιχεία λογαριασμού -->
+  <div class="form-section">
+    <h2 class="section-title">Στοιχεία λογαριασμού</h2>
+    <div class="form-grid">
+      <div class="field-group">
+        <label for="password">Κωδικός πρόσβασης*</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          required
+          minlength="8"
+        />
+        <small class="field-hint">
+          Τουλάχιστον 8 χαρακτήρες, με γράμματα (ελληνικά ή λατινικά) και αριθμούς.
+        </small>
+        <p class="field-error" data-error-for="password"></p>
+      </div>
 
-                <!-- Ρόλος χρήστη -->
-                <div class="form-field">
-                  <label>Ρόλος χρήστη *</label>
-                  <div class="radio-group">
-                    <label>
-                      <input
-                        type="radio"
-                        name="role"
-                        value="student"
-                        required
-                      />
-                      Φοιτητής / Σπουδαστής
-                    </label>
-                    <label>
-                      <input
-                        type="radio"
-                        name="role"
-                        value="graduate"
-                      />
-                      Απόφοιτος
-                    </label>
-                    <label>
-                      <input
-                        type="radio"
-                        name="role"
-                        value="professional"
-                      />
-                      Επαγγελματίας / self-taught
-                    </label>
-                  </div>
-                  <p class="field-error" data-error-for="role"></p>
-                </div>
+      <div class="field-group">
+        <label for="confirmPassword">Επιβεβαίωση κωδικού*</label>
+        <input
+          type="password"
+          id="confirmPassword"
+          name="confirmPassword"
+          required
+        />
+        <p class="field-error" data-error-for="confirmPassword"></p>
+      </div>
+    </div>
+  </div>
 
-                <!-- Ενδιαφέρον -->
-<div class="form-field">
-  <label for="interest">Περιοχή ενδιαφέροντος *</label>
-  <select id="interest" name="interest" required>
-    <option value="">Επίλεξε...</option>
-    <option value="python">Python &amp; Algorithms</option>
-    <option value="web">Web Development</option>
-    <option value="networks">Networks</option>
-    <option value="databases">Databases &amp; SQL</option>
-  </select>
-  <p class="field-error" data-error-for="interest"></p>
-</div>
+  <!-- Ρόλος & βασικό ενδιαφέρον -->
+  <div class="form-section">
+    <h2 class="section-title">Προφίλ χρήστη</h2>
 
+    <div class="form-grid">
+      <div class="field-group">
+        <span class="field-label">Ρόλος χρήστη*</span>
+        <div class="field-inline">
+          <label>
+            <input type="radio" name="role" value="student" required />
+            Φοιτητής/τρια
+          </label>
+          <label>
+            <input type="radio" name="role" value="graduate" />
+            Απόφοιτος/η
+          </label>
+          <label>
+            <input type="radio" name="role" value="professional" />
+            Επαγγελματίας
+          </label>
+        </div>
+        <p class="field-error" data-error-for="role"></p>
+      </div>
 
-                <!-- Όροι χρήσης -->
-                <div class="form-field form-field-inline">
-                  <label class="checkbox-label">
-                    <input
-                      type="checkbox"
-                      id="terms"
-                      name="termsAccepted"
-                      required
-                    />
-                    Αποδέχομαι τους όρους χρήσης και την πολιτική απορρήτου.
-                  </label>
-                  <p class="field-error" data-error-for="terms"></p>
-                </div>
+      <div class="field-group">
+        <label for="interest">Περιοχή ενδιαφέροντος*</label>
+        <select id="interest" name="interest" required>
+          <option value="">Επίλεξε...</option>
+          <option value="python">Python & Programming</option>
+          <option value="web">Web Development</option>
+          <option value="networks">Networks</option>
+          <option value="databases">Databases & SQL</option>
+          <option value="security">Security</option>
+        </select>
+        <p class="field-error" data-error-for="interest"></p>
+      </div>
+    </div>
+  </div>
 
-                <!-- Submit -->
-                <div class="form-actions">
-                  <button type="submit" class="btn btn-primary">
-                    Create your account
-                  </button>
+  <!-- Ενότητα για προτάσεις μαθημάτων -->
+  <div class="form-section">
+    <h2 class="section-title">Προτάσεις μαθημάτων</h2>
 
-                <p class="form-alt">
-                  Έχεις ήδη λογαριασμό;
-                <a href="login.html">Σύνδεση</a>
-                </p>
-            </div>
+    <div class="form-grid">
+      <div class="field-group">
+        <label for="experience">Εμπειρία προγραμματισμού*</label>
+        <select id="experience" name="experience" required>
+          <option value="">Επίλεξε...</option>
+          <option value="none">Καμία</option>
+          <option value="basic">Βασική</option>
+          <option value="intermediate">Μέτρια</option>
+          <option value="advanced">Προχωρημένη</option>
+        </select>
+        <p class="field-error" data-error-for="experience"></p>
+      </div>
 
+      <div class="field-group">
+        <label for="goal">Κύριος στόχος σου*</label>
+        <select id="goal" name="goal" required>
+          <option value="">Επίλεξε...</option>
+          <option value="find-job">Εύρεση εργασίας</option>
+          <option value="learn-basics">Μάθηση βασικών εννοιών</option>
+          <option value="university">Υποστήριξη μαθημάτων σχολής</option>
+          <option value="career-change">Αλλαγή καριέρας</option>
+        </select>
+        <p class="field-error" data-error-for="goal"></p>
+      </div>
+    </div>
+  </div>
 
-                <!-- Μήνυμα επιτυχίας / αποτυχίας (θα το ελέγχει το JS) -->
-                <div class="form-status" aria-live="polite"></div>
-              </form>
+  <!-- Όροι χρήσης -->
+  <div class="form-section">
+    <div class="field-group">
+      <label class="checkbox-label">
+        <input type="checkbox" name="termsAccepted" value="yes" required />
+        Αποδέχομαι τους όρους χρήσης της πλατφόρμας.*
+      </label>
+      <p class="field-error" data-error-for="terms"></p>
+    </div>
+  </div>
+
+  <!-- Κατάσταση & κουμπί -->
+  <div class="form-footer">
+    <p class="form-status"></p>
+    <button type="submit" class="btn btn-primary">
+      Συνέχεια στην επιβεβαίωση
+    </button>
+  </div>
+</form>
+
+<!-- Ενότητα σύνοψης πριν την τελική επιβεβαίωση -->
+<section id="registerSummary" class="register-summary" hidden>
+  <h2 class="section-title">Επιβεβαίωση στοιχείων</h2>
+  <p class="section-subtitle">
+    Έλεγξε τα στοιχεία σου πριν ολοκληρώσεις την εγγραφή.
+  </p>
+
+  <div class="register-summary-content"></div>
+
+  <div class="register-summary-actions">
+    <button type="button" class="btn btn-primary" id="summaryConfirmBtn">
+      Επιβεβαίωση εγγραφής
+    </button>
+    <button type="button" class="btn" id="summaryEditBtn">
+      Επιστροφή &amp; διόρθωση
+    </button>
+  </div>
+</section>
+
               
             </div>
           </div>
@@ -278,6 +304,21 @@
   <script src="assets/js/ui/menu.js" defer></script>
   <script src="assets/js/forms/register-form.js" defer></script>
   <script src="assets/js/app.js" defer></script>
-<script src="app.js" defer></script>
+    <!-- MODAL -->
+  <div id="modal" class="modal">
+    <div class="modal-box">
+      <button id="modalClose" class="modal-close" aria-label="Κλείσιμο">
+        &times;
+      </button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
 
+  <!-- Scripts -->
+  <script src="assets/js/ui/menu.js" defer></script>
+  <script src="assets/js/ui/modal.js" defer></script>
+  <script src="assets/js/forms/register-form.js" defer></script>
 </body>
+</html>
+
+
