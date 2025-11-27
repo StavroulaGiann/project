@@ -392,15 +392,6 @@ function initBooksPage() {
 
       const metaParts = [];
 
-      if (book.author) {
-        metaParts.push(`✍️ ${book.author}`);
-      }
-      if (book.year) {
-        metaParts.push(`📅 ${book.year}`);
-      }
-      if (book.pages) {
-        metaParts.push(`📖 ${book.pages} σελίδες`);
-      }
 
       const metaHtml = metaParts.map((txt) => `<span>${txt}</span>`).join("");
 
@@ -715,15 +706,6 @@ function initCoursesPage() {
 
       const metaParts = [];
 
-      if (course.duration) {
-        metaParts.push(`⏱ ${course.duration}`);
-      }
-      if (course.lessonsCount) {
-        metaParts.push(`📚 ${course.lessonsCount} lessons`);
-      }
-      if (course.mode) {
-        metaParts.push(`💻 ${course.mode}`);
-      }
 
       const metaHtml = metaParts.map((txt) => `<span>${txt}</span>`).join("");
 
@@ -821,6 +803,19 @@ function initCoursesPage() {
   if (sortBySelect) {
     sortBySelect.addEventListener("change", applyFiltersAndRender);
   }
+  // ===========================
+// Προεπιλεγμένο φίλτρο μέσω URL ?category=xxx
+// ===========================
+const urlParams = new URLSearchParams(window.location.search);
+const urlCategory = urlParams.get("category");
+
+// Αν υπάρχει ?category=..., συμπλήρωσε αυτόματα το dropdown
+if (urlCategory) {
+  const categoryFilter = document.getElementById("categoryFilter");
+  if (categoryFilter) {
+    categoryFilter.value = urlCategory;
+  }
+}
 
   applyFiltersAndRender();
 }
