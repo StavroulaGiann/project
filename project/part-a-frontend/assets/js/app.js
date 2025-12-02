@@ -341,7 +341,7 @@ function initBooksPage() {
     return sorted;
   }
 
-  function renderBooks(books) {
+    function renderBooks(books) {
     grid.innerHTML = "";
 
     if (!books.length) {
@@ -358,7 +358,7 @@ function initBooksPage() {
 
     books.forEach((book) => {
       const card = document.createElement("article");
-      card.className = "course-card";
+      card.className = "course-card book-card";  // <-- extra class για ειδικό layout
 
       const categoryLabel = mapCategory(book.category);
       const levelLabel = mapLevel(book.level);
@@ -391,50 +391,72 @@ function initBooksPage() {
           : "";
 
       const metaParts = [];
-
-
       const metaHtml = metaParts.map((txt) => `<span>${txt}</span>`).join("");
 
+      // Χρησιμοποιούμε τα image fields από το books.js
+      const imageHtml = book.image
+        ? `
+        <div class="book-card-cover">
+          <img
+            src="${book.image}"
+            ${book.imageSrcSet ? `srcset="${book.imageSrcSet}"` : ""}
+            ${book.imageSizes ? `sizes="${book.imageSizes}"` : ""}
+            alt="${escapeHtml(book.title || "")}"
+            loading="lazy"
+          />
+        </div>
+      `
+        : "";
+
       card.innerHTML = `
-        <div class="course-card-header">
-          <div>
-            <h3 class="course-title">${escapeHtml(book.title || "")}</h3>
+        <div class="book-card-inner">
+          ${imageHtml}
+
+          <div class="book-card-info">
+            <div class="course-card-header">
+              <div>
+                <h3 class="course-title">${escapeHtml(book.title || "")}</h3>
+                ${
+                  book.subtitle
+                    ? `<p class="course-subtitle">${escapeHtml(
+                        book.subtitle
+                      )}</p>`
+                    : ""
+                }
+                <div class="course-badges">
+                  ${badges.join("")}
+                </div>
+              </div>
+            </div>
+
             ${
-              book.subtitle
-                ? `<p class="course-subtitle">${escapeHtml(book.subtitle)}</p>`
+              book.shortDescription
+                ? `<p class="section-subtitle" style="margin-top:0.5rem;">${escapeHtml(
+                    book.shortDescription
+                  )}</p>`
                 : ""
             }
-            <div class="course-badges">
-              ${badges.join("")}
+
+            <div class="course-meta">
+              ${metaHtml}
+            </div>
+
+            <div class="course-actions">
+              <a href="books-details.html?id=${encodeURIComponent(
+                book.id
+              )}" class="btn btn-primary">
+                Περισσότερα
+              </a>
+              ${ratingHtml}
             </div>
           </div>
-        </div>
-
-        ${
-          book.shortDescription
-            ? `<p class="section-subtitle" style="margin-top:0.5rem;">${escapeHtml(
-                book.shortDescription
-              )}</p>`
-            : ""
-        }
-
-        <div class="course-meta">
-          ${metaHtml}
-        </div>
-
-        <div class="course-actions">
-          <a href="books-details.html?id=${encodeURIComponent(
-            book.id
-          )}" class="btn btn-primary">
-            Περισσότερα
-          </a>
-          ${ratingHtml}
         </div>
       `;
 
       grid.appendChild(card);
     });
   }
+
 
   if (searchInput) {
     searchInput.addEventListener("input", applyFiltersAndRender);

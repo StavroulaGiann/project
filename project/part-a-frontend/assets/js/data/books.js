@@ -21,7 +21,15 @@ window.BOOKS = [
     rating: 4.7,
     ratingCount: 87,
     available: true,
-    tags: ["python", "Beginner"]
+    tags: ["python", "Beginner"],
+    image: "assets/img/thumbnails/py.jpg",
+    imageSrcSet: `
+    assets/img/thumbnails/py.jpg 320w,
+    assets/img/thumbnails/py.jpg 640w,
+    a ssets/img/thumbnails/py.jpg 1024w
+    `.trim(),
+    imageSizes: "(max-width: 768px) 100vw, 300px"
+    
   },
   {
     id: "html-css-handbook",
@@ -43,7 +51,14 @@ window.BOOKS = [
     rating: 4.6,
     ratingCount: 65,
     available: true,
-    tags: ["HTML5", "CSS3", "Responsive"]
+    tags: ["HTML5", "CSS3", "Responsive"],
+    image: "assets/img/thumbnails/html-css.png",
+    imageSrcSet: `
+    assets/img/thumbnails/html-css.png 320w,
+    assets/img/thumbnails/html-css.png 640w,
+    a ssets/img/thumbnails/html-css.png 1024w
+    `.trim(),
+    imageSizes: "(max-width: 768px) 100vw, 300px"
   },
   {
     id: "java-starter-book",
@@ -65,7 +80,14 @@ window.BOOKS = [
     rating: 4.5,
     ratingCount: 54,
     available: true,
-    tags: ["Java", "Programming"]
+    tags: ["Java", "Programming"],
+    image: "assets/img/thumbnails/java.jpeg",
+    imageSrcSet: `
+    assets/img/thumbnails/java.jpeg 320w,
+    assets/img/thumbnails/java.jpeg 640w,
+    a ssets/img/thumbnails/java.jpeg 1024w
+    `.trim(),
+    imageSizes: "(max-width: 768px) 100vw, 300px"
   },
   {
     id: "networking-fundamentals-book",
@@ -87,7 +109,14 @@ window.BOOKS = [
     rating: 4.2,
     ratingCount: 31,
     available: true,
-    tags: ["Networks", "TCP/IP"]
+    tags: ["Networks", "TCP/IP"],
+    image: "assets/img/thumbnails/comp-sci.jpg",
+    imageSrcSet: `
+    assets/img/thumbnails/comp-sci.jpg 320w,
+    assets/img/thumbnails/comp-sci.jpg 640w,
+    a ssets/img/thumbnails/comp-sci.jpg 1024w
+    `.trim(),
+    imageSizes: "(max-width: 768px) 100vw, 300px"
   },
   {
     id: "sap-book",
@@ -109,7 +138,14 @@ window.BOOKS = [
     rating: 4.8,
     ratingCount: 102,
     available: true,
-    tags: ["sap", "web", "Intermediate"]
+    tags: ["sap", "web", "Intermediate"],
+    image: "assets/img/thumbnails/sap.jpg",
+    imageSrcSet: `
+    assets/img/thumbnails/sap.jpg 320w,
+    assets/img/thumbnails/sap.jpg 640w,
+    a ssets/img/thumbnails/sap.jpg 1024w
+    `.trim(),
+    imageSizes: "(max-width: 768px) 100vw, 300px"
   },
   {
     id: "cyber-book",
@@ -131,7 +167,14 @@ window.BOOKS = [
     rating: 4.3,
     ratingCount: 28,
     available: true,
-    tags: ["security", "intermediate"]
+    tags: ["security", "intermediate"],
+    image: "assets/img/thumbnails/cyber.jpg",
+    imageSrcSet: `
+    assets/img/thumbnails/cyber.jpg 320w,
+    assets/img/thumbnails/cyber.jpg 640w,
+    a ssets/img/thumbnails/cyber.jpg 1024w
+    `.trim(),
+    imageSizes: "(max-width: 768px) 100vw, 300px"
   },
   {
     id: "com-net-book",
@@ -153,7 +196,14 @@ window.BOOKS = [
     rating: 4.6,
     ratingCount: 46,
     available: false,
-    tags: ["networks", "intermediate"]
+    tags: ["networks", "intermediate"],
+    image: "assets/img/thumbnails/diktya-ypol.jpg",
+    imageSrcSet: `
+    assets/img/thumbnails/diktya-ypol.jpg 320w,
+    assets/img/thumbnails/diktya-ypol.jpg 640w,
+    a ssets/img/thumbnails/diktya-ypol.jpg 1024w
+    `.trim(),
+    imageSizes: "(max-width: 768px) 100vw, 300px"
   },
   {
     id: "c++-book",
@@ -175,7 +225,14 @@ window.BOOKS = [
     rating: 4.9,
     ratingCount: 39,
     available: true,
-    tags: ["c++", "Programming"]
+    tags: ["c++", "Programming"],
+    image: "assets/img/thumbnails/c++.jpg",
+    imageSrcSet: `
+    assets/img/thumbnails/c++.jpg 320w,
+    assets/img/thumbnails/c++.jpg 640w,
+    a ssets/img/thumbnails/c++.jpg 1024w
+    `.trim(),
+    imageSizes: "(max-width: 768px) 100vw, 300px"
   },
   {
     id: "istos-book",
@@ -197,7 +254,14 @@ window.BOOKS = [
     rating: 4.9,
     ratingCount: 39,
     available: true,
-    tags: ["html", "css", "js", "web"]
+    tags: ["html", "css", "js", "web"],
+    image: "assets/img/thumbnails/istos.jpg",
+    imageSrcSet: `
+    assets/img/thumbnails/istos.jpg 320w,
+    assets/img/thumbnails/istos.jpg 640w,
+    a ssets/img/thumbnails/istos.jpg 1024w
+    `.trim(),
+    imageSizes: "(max-width: 768px) 100vw, 300px"
   },
   {
     id: "wir-book",
@@ -219,7 +283,14 @@ window.BOOKS = [
     rating: 4.9,
     ratingCount: 39,
     available: true,
-    tags: ["html", "css", "js", "web"]
+    tags: ["html", "css", "js", "web"],
+    image: "assets/img/thumbnails/asyrmata.jpg",
+    imageSrcSet: `
+    assets/img/thumbnails/asyrmata.jpg 320w,
+    assets/img/thumbnails/asyrmata.jpg 640w,
+    a ssets/img/thumbnails/asyrmata.jpg 1024w
+    `.trim(),
+    imageSizes: "(max-width: 768px) 100vw, 300px"
   },
   {
     id: "cyberlaw-book",
@@ -240,7 +311,14 @@ window.BOOKS = [
     rating: 4.3,
     ratingCount: 28,
     available: true,
-    tags: ["security", "beginner", "cyberlaw"]
+    tags: ["security", "beginner", "cyberlaw"],
+    image: "assets/img/thumbnails/cyber-law.jpg",
+    imageSrcSet: `
+    assets/img/thumbnails/cyber-law.jpg 320w,
+    assets/img/thumbnails/cyber-law.jpg 640w,
+    a ssets/img/thumbnails/cyber-law.jpg 1024w
+    `.trim(),
+    imageSizes: "(max-width: 768px) 100vw, 300px"
   },
   {
     id: "cyberlaw-book",
@@ -261,6 +339,13 @@ window.BOOKS = [
     rating: 4.3,
     ratingCount: 28,
     available: true,
-    tags: ["security", "advanced",]
+    tags: ["security", "advanced",],
+    image: "assets/img/thumbnails/net-sec.jpg",
+    imageSrcSet: `
+    assets/img/thumbnails/net-sec.jpg 320w,
+    assets/img/thumbnails/net-sec.jpg 640w,
+    a ssets/img/thumbnails/net-sec.jpg 1024w
+    `.trim(),
+    imageSizes: "(max-width: 768px) 100vw, 300px"
   }
 ];

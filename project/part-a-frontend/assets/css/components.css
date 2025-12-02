@@ -732,8 +732,10 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
-  height: 100%;
-  align-items: stretch;   
+  align-items: stretch;
+  height: auto;
+  min-height: 300px;
+  overflow: visible;
 }
 
 
@@ -796,7 +798,8 @@ footer {
 }
 
 .course-actions {
-  margin-top: auto;  
+  margin-top: auto;
+    
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -805,6 +808,7 @@ footer {
 }
 
 .course-actions .btn {
+  margin-top: 1px;
   padding-inline: 0.9rem;
 }
 
@@ -1012,3 +1016,69 @@ footer {
 }
 
 
+/* ===========================
+   Book cards (image + hover info)
+   =========================== */
+
+.book-card {
+  height: 100%;                   
+}
+
+.book-card-inner {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: visible;
+  height: 500px;
+}
+
+/* Εξώφυλλο */
+.book-card-cover {
+  width: 100%;
+  height : 100%;
+  background: radial-gradient(circle at top, rgba(15,23,42,0.7), #020617);
+  overflow: hidden;
+
+}
+
+.book-card-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+/* Overlay με τις πληροφορίες που φαίνονται ΜΟΝΟ στο hover */
+.book-card-info {
+  position: absolute;
+  inset: 0;
+  padding: 1rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(
+    to top,
+    rgba(15, 23, 42, 0.96),
+    rgba(15, 23, 42, 0.7),
+    rgba(15, 23, 42, 0.1)
+  );
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.25s ease-out, transform 0.25s ease-out;
+}
+
+/* default: μόνο η εικόνα */
+.book-card:hover .book-card-info {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* λίγο zoom & σκοτείνιασμα στο cover όταν κάνεις hover */
+.book-card:hover .book-card-cover img {
+  transform: scale(1.04);
+  filter: brightness(0.30);
+}
+/* φέρνουμε το κουμπί πάντα στο κάτω μέρος του overlay */
+.book-card .course-actions {
+  margin-top: auto;
+}
