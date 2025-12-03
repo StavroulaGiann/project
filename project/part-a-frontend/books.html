@@ -66,9 +66,9 @@
             <span>Browse devAcademy library</span>
           </div>
 
-          <h1 class="section-title">Βιβλιοθήκη devAcademy</h1>
+          <h1 class="section-title">devAcademy Library</h1>
           <p class="section-subtitle">
-            Βιβλία Πληροφορικής που συμπληρώνουν τα online courses.
+          Informatics books that complement online courses.
           </p>
         </section>
 
@@ -76,27 +76,27 @@
         <section class="courses-layout">
           <!-- Φίλτρα -->
           <aside class="courses-filters" aria-label="Φίλτρα βιβλίων">
-            <h2 class="section-title">Φίλτρα</h2>
+            <h2 class="section-title">Filters</h2>
             <p class="section-subtitle">
-              Φιλτράρισε τα βιβλία ανά κατηγορία, γλώσσα και διαθεσιμότητα.
+              Filter books by category, language and availability.
             </p>
 
             <form id="booksFilters" class="filters-form">
               <div class="field-group">
-                <label for="bookSearchInput">Αναζήτηση</label>
+                <label for="bookSearchInput">Search</label>
                 <input
                   type="search"
                   id="bookSearchInput"
                   name="q"
-                  placeholder="Τίτλος, συγγραφέας ή λέξεις-κλειδιά..."
+                  placeholder="Title, author or keywords..."
                 />
               </div>
 
               <div class="filters-row">
                 <div class="field-group">
-                  <label for="bookCategoryFilter">Κατηγορία</label>
+                  <label for="bookCategoryFilter">Category</label>
                   <select id="bookCategoryFilter" name="category">
-                    <option value="">Όλες</option>
+                    <option value="">All</option>
                     <option value="programming">Programming</option>
                     <option value="web">Web</option>
                     <option value="networks">Networks</option>
@@ -106,9 +106,9 @@
                 </div>
 
                 <div class="field-group">
-                  <label for="bookLevelFilter">Επίπεδο</label>
+                  <label for="bookLevelFilter">Level</label>
                   <select id="bookLevelFilter" name="level">
-                    <option value="">Όλα</option>
+                    <option value="">All</option>
                     <option value="beginner">Beginner</option>
                     <option value="intermediate">Intermediate</option>
                     <option value="advanced">Advanced</option>
@@ -118,19 +118,19 @@
 
               <div class="filters-row">
                 <div class="field-group">
-                  <label for="bookAvailabilityFilter">Διαθεσιμότητα</label>
+                  <label for="bookAvailabilityFilter">Availability</label>
                   <select id="bookAvailabilityFilter" name="availability">
-                    <option value="">Όλα</option>
-                    <option value="available">Μόνο διαθέσιμα</option>
+                    <option value="">All</option>
+                    <option value="available">Available only</option>
                   </select>
                 </div>
 
                 <div class="field-group">
-                  <label for="bookLanguageFilter">Γλώσσα</label>
+                  <label for="bookLanguageFilter">Language</label>
                   <select id="bookLanguageFilter" name="language">
-                    <option value="">Όλες</option>
-                    <option value="GR">Ελληνικά</option>
-                    <option value="EN">Αγγλικά</option>
+                    <option value="">All</option>
+                    <option value="GR">Greek</option>
+                    <option value="EN">English</option>
                   </select>
                 </div>
               </div>
@@ -141,19 +141,19 @@
           <div class="courses-list">
             <div class="courses-list-header">
               <div>
-                <h2 class="section-title">Όλα τα βιβλία</h2>
+                <h2 class="section-title">All books</h2>
                 <p class="section-subtitle">
-                  <span id="booksCount">0 books</span> στη βιβλιοθήκη.
+                  <span id="booksCount">0 books</span>in Library.
                 </p>
               </div>
 
               <div class="courses-sort">
-                <label for="bookSortBy">Ταξινόμηση</label>
+                <label for="bookSortBy">Sort by</label>
                 <select id="bookSortBy" name="sort">
-                  <option value="featured">Προτεινόμενα</option>
-                  <option value="rating">Καλύτερη αξιολόγηση</option>
-                  <option value="newest">Νεότερα</option>
-                  <option value="pages">Σελίδες</option>
+                  <option value="featured">Suggested</option>
+                  <option value="rating">Best Rated</option>
+                  <option value="newest">Newest</option>
+                  <option value="pages">Pages</option>
                 </select>
               </div>
             </div>
@@ -164,8 +164,8 @@
 
             <!-- Empty state -->
             <div id="booksEmpty" class="empty-state" hidden>
-              Δεν βρέθηκαν βιβλία για αυτά τα φίλτρα.
-              Δοκίμασε να αλλάξεις κατηγορία ή λέξεις-κλειδιά.
+              No books found for these filters.
+              Try changing category or keywords.
             </div>
           </div>
         </section>

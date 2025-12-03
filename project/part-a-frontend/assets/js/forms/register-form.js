@@ -1,10 +1,10 @@
-// AICANARY: CSD-ELearn-2025
+
 
 (function () {
-  console.log("✅ register-form.js loaded");
+  console.log("register-form.js loaded");
 
   const form = document.getElementById("registerForm");
-  console.log("ℹ️ form element:", form);
+  console.log("form element:", form);
 
   if (!form) return;
 
@@ -74,20 +74,20 @@
 
     // First name
     if (!firstName) {
-      setFieldError("firstName", "Το όνομα είναι υποχρεωτικό.");
+      setFieldError("firstName", "First Name is required");
       valid = false;
     }
 
     // Last name
     if (!lastName) {
-      setFieldError("lastName", "Το επώνυμο είναι υποχρεωτικό.");
+      setFieldError("lastName", "Last Name is required.");
       valid = false;
     }
 
     // Email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!email || !emailRegex.test(email)) {
-      setFieldError("email", "Δώσε ένα έγκυρο email.");
+      setFieldError("email", "Please provide a valid email.");
       valid = false;
     }
 
@@ -95,26 +95,26 @@
     if (!isStrongPassword(password)) {
       setFieldError(
         "password",
-        "Ο κωδικός πρέπει να έχει τουλάχιστον 8 χαρακτήρες, με ελληνικά ή λατινικά γράμματα και αριθμούς."
+        "The password must be at least 8 characters long, with Greek or Latin letters and numbers.."
       );
       valid = false;
     }
 
     // Confirm Password
     if (password !== confirmPassword) {
-      setFieldError("confirmPassword", "Οι κωδικοί δεν ταιριάζουν.");
+      setFieldError("confirmPassword", "Password mismatch");
       valid = false;
     }
 
     // Role
     if (!role) {
-      setFieldError("role", "Επίλεξε ρόλο χρήστη.");
+      setFieldError("role", "Choose user background");
       valid = false;
     }
 
     // Terms
     if (!terms) {
-      setFieldError("terms", "Πρέπει να αποδεχτείς τους όρους χρήσης.");
+      setFieldError("terms", "This field is necessary");
       valid = false;
     }
 
@@ -127,10 +127,10 @@
 
   function showSummaryModal(formData) {
     if (typeof window.openModal !== "function") {
-      console.warn("⚠️ openModal δεν είναι διαθέσιμο.");
+      console.warn("openModal δεν είναι διαθέσιμο.");
       if (statusEl) {
         statusEl.textContent =
-          "Τα στοιχεία είναι έγκυρα. (Δεν βρέθηκε modal, αλλά σε παραγωγή θα εμφανίζεται σύνοψη.)";
+          "The data is valid. ";
       }
       return;
     }
@@ -144,12 +144,12 @@
     const fullName = (firstName + " " + lastName).trim();
 
     const html = `
-      <h2 class="modal-title">Επιβεβαίωση στοιχείων</h2>
+      <h2 class="modal-title">Data Confimation</h2>
       <div class="modal-body">
-        <p>Έλεγξε τα στοιχεία σου πριν ολοκληρώσεις την εγγραφή:</p>
+        <p>Check your details before registration.:</p>
         <dl class="summary-list">
           <div class="summary-row">
-            <dt>Ονοματεπώνυμο:</dt>
+            <dt>First / Last Name:</dt>
             <dd>${escapeHtml(fullName)}</dd>
           </div>
           <div class="summary-row">
@@ -157,21 +157,21 @@
             <dd>${escapeHtml(email)}</dd>
           </div>
           <div class="summary-row">
-            <dt>Ρόλος:</dt>
+            <dt>Experience:</dt>
             <dd>${escapeHtml(role)}</dd>
           </div>
           <div class="summary-row">
-            <dt>Περιοχή ενδιαφέροντος:</dt>
+            <dt>Area of interest:</dt>
             <dd>${escapeHtml(interest)}</dd>
           </div>
         </dl>
 
         <div class="modal-actions" style="margin-top: 1.2rem; display: flex; gap: 0.6rem; justify-content: flex-end; flex-wrap: wrap;">
           <button type="button" class="btn btn-primary" id="modalConfirmRegister">
-            Επιβεβαίωση εγγραφής
+            Confirm registration
           </button>
           <button type="button" class="btn" id="modalEditRegister">
-            Επιστροφή &amp; διόρθωση
+           Go Back
           </button>
         </div>
       </div>
@@ -186,7 +186,7 @@
       confirmBtn.addEventListener("click", () => {
         // Τελική "υποβολή" στον client
         if (statusEl) {
-          statusEl.textContent = "✔ Η εγγραφή ολοκληρώθηκε επιτυχώς!";
+          statusEl.textContent = "Registration completed successfully!";
           statusEl.style.color = "#4ade80"; // πράσινο
         }
 
@@ -211,7 +211,7 @@
         }
         if (statusEl) {
           statusEl.textContent =
-            "Μπορείς να διορθώσεις τα στοιχεία σου και να ξαναπατήσεις Συνέχεια.";
+            "You can correct your data and try again.";
           statusEl.style.color = "";
         }
       });
@@ -224,14 +224,14 @@
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
-    console.log("📨 submit fired");
+    console.log("submit fired");
 
     const { valid, formData } = validateForm();
 
     if (!valid) {
       if (statusEl) {
         statusEl.textContent =
-          "❌ Υπάρχουν λάθη. Διόρθωσέ τα για να συνεχίσεις.";
+          "Errors. Please correct them to continue.";
         statusEl.style.color = "#f97373"; // κόκκινο
       }
       return;
@@ -240,7 +240,7 @@
     // SUCCESS → άνοιξε modal επιβεβαίωσης
     if (statusEl) {
       statusEl.textContent =
-        "✅ Τα στοιχεία φαίνονται έγκυρα. Δες την προεπισκόπηση και επιβεβαίωσε.";
+        "Valid data. View the preview and confirm.";
       statusEl.style.color = "";
     }
 

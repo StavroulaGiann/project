@@ -64,38 +64,36 @@
           <div class="register-grid">
             <!-- Αριστερή στήλη: info / benefits -->
             <div class="register-info-card">
-              <h1>Κάνε εγγραφή στο devAcademy</h1>
+              <h1>Register at devAcademy</h1>
               <p class="register-subtitle">
-                Δημιούργησε δωρεάν λογαριασμό, διάλεξε μαθήματα Πληροφορικής
-                και ξεκίνα να χτίζεις portfolio projects.
+               Create a free account, choose courses
+and start building portfolio projects.
               </p>
 
               <ul class="register-benefits">
-                <li>Πρόσβαση σε 15+ μαθήματα Python, Web, Δίκτυα, Βάσεις.</li>
-                <li>Projects &amp; quizzes με βαθμολογία.</li>
-                <li>Προσαρμοσμένα στην ύλη σχολών Πληροφορικής.</li>
+                <li>Access to 10+ Python, Web, Networks, Security courses.</li>
+                <li>Adapted to the curriculum of Computer Science schools.</li>
               </ul>
 
               <div class="register-highlight">
-                Ιδανικό για φοιτητές, αποφοίτους και beginners που θέλουν
-                να ασχοληθούν επαγγελματικά με την Πληροφορική.
+Ideal for students, graduates and beginners who want to pursue a career in Information Technology.
               </div>
             </div>
 
             <!-- Δεξιά στήλη: φόρμα εγγραφής -->
             <div class="register-form-card">
-              <h2>Δημιούργησε λογαριασμό</h2>
+              <h2>Create Account</h2>
               <p class="register-form-desc">
-                Συμπλήρωσε τα παρακάτω στοιχεία. Τα πεδία με * είναι υποχρεωτικά.
+                Please fill in the information below. Fields marked with * are required.  
               </p>
 
 <form id="registerForm" novalidate class="register-form">
   <!-- Βασικά στοιχεία χρήστη -->
   <div class="form-section">
-    <h2 class="section-title">Βασικά στοιχεία</h2>
+    <h2 class="section-title">Personal Data</h2>
     <div class="form-grid">
       <div class="field-group">
-        <label for="firstName">Όνομα*</label>
+        <label for="firstName">First Name*</label>
         <input
           type="text"
           id="firstName"
@@ -106,7 +104,7 @@
       </div>
 
       <div class="field-group">
-        <label for="lastName">Επώνυμο*</label>
+        <label for="lastName">Last Name*</label>
         <input
           type="text"
           id="lastName"
@@ -128,7 +126,7 @@
       </div>
 
       <div class="field-group">
-        <label for="birthDate">Ημερομηνία γέννησης*</label>
+        <label for="birthDate">Birthdate*</label>
         <input
           type="date"
           id="birthDate"
@@ -142,10 +140,10 @@
 
   <!-- Στοιχεία λογαριασμού -->
   <div class="form-section">
-    <h2 class="section-title">Στοιχεία λογαριασμού</h2>
+    <h2 class="section-title">Account Details</h2>
     <div class="form-grid">
       <div class="field-group">
-        <label for="password">Κωδικός πρόσβασης*</label>
+        <label for="password">Password*</label>
         <input
           type="password"
           id="password"
@@ -154,13 +152,13 @@
           minlength="8"
         />
         <small class="field-hint">
-          Τουλάχιστον 8 χαρακτήρες, με γράμματα (ελληνικά ή λατινικά) και αριθμούς.
+          At least 8 characters, with letters (Greek or Latin) and numbers.
         </small>
         <p class="field-error" data-error-for="password"></p>
       </div>
 
       <div class="field-group">
-        <label for="confirmPassword">Επιβεβαίωση κωδικού*</label>
+        <label for="confirmPassword">Password Confirmation*</label>
         <input
           type="password"
           id="confirmPassword"
@@ -174,32 +172,32 @@
 
   <!-- Ρόλος & βασικό ενδιαφέρον -->
   <div class="form-section">
-    <h2 class="section-title">Προφίλ χρήστη</h2>
+    <h2 class="section-title">User Profile</h2>
 
     <div class="form-grid">
       <div class="field-group">
-        <span class="field-label">Ρόλος χρήστη*</span>
+        <span class="field-label">User Background*</span>
         <div class="field-inline">
           <label>
             <input type="radio" name="role" value="student" required />
-            Φοιτητής/τρια
+            Student
           </label>
           <label>
             <input type="radio" name="role" value="graduate" />
-            Απόφοιτος/η
+            Graduate
           </label>
           <label>
             <input type="radio" name="role" value="professional" />
-            Επαγγελματίας
+            Professional
           </label>
         </div>
         <p class="field-error" data-error-for="role"></p>
       </div>
 
       <div class="field-group">
-        <label for="interest">Περιοχή ενδιαφέροντος*</label>
+        <label for="interest">Area of ​​interest*</label>
         <select id="interest" name="interest" required>
-          <option value="">Επίλεξε...</option>
+          <option value="">Choose...</option>
           <option value="python">Programming Languages</option>
           <option value="web">Web Development</option>
           <option value="networks">Networks</option>
@@ -212,28 +210,28 @@
 
   <!-- Ενότητα για προτάσεις μαθημάτων -->
   <div class="form-section">
-    <h2 class="section-title">Προτάσεις μαθημάτων</h2>
+    <h2 class="section-title">Suggested courses</h2>
 
     <div class="form-grid">
       <div class="field-group">
-        <label for="experience">Εμπειρία προγραμματισμού*</label>
+        <label for="experience">Programming experience*</label>
         <select id="experience" name="experience" required>
-          <option value="">Επίλεξε...</option>
-          <option value="basic">Καμία / Βασική</option>
-          <option value="intermediate">Μέτρια</option>
-          <option value="advanced">Προχωρημένη</option>
+          <option value="">Choose...</option>
+          <option value="basic">None / Beginner</option>
+          <option value="intermediate">Intermediate</option>
+          <option value="advanced">Advanced</option>
         </select>
         <p class="field-error" data-error-for="experience"></p>
       </div>
 
       <div class="field-group">
-        <label for="goal">Κύριος στόχος σου*</label>
+        <label for="goal">Your main goal*</label>
         <select id="goal" name="goal" required>
-          <option value="">Επίλεξε...</option>
-          <option value="find-job">Εύρεση εργασίας</option>
-          <option value="learn-basics">Μάθηση βασικών εννοιών</option>
-          <option value="university">Υποστήριξη μαθημάτων σχολής</option>
-          <option value="career-change">Αλλαγή καριέρας</option>
+          <option value="">Choose...</option>
+          <option value="find-job">Find job</option>
+          <option value="learn-basics">Learn basic concepts</option>
+          <option value="university">Extra support for university courses</option>
+          <option value="career-change">Career Change</option>
         </select>
         <p class="field-error" data-error-for="goal"></p>
       </div>
@@ -245,7 +243,7 @@
     <div class="field-group">
       <label class="checkbox-label">
         <input type="checkbox" name="termsAccepted" value="yes" required />
-        Αποδέχομαι τους όρους χρήσης της πλατφόρμας.*
+       I accept the terms of use.*
       </label>
       <p class="field-error" data-error-for="terms"></p>
     </div>
@@ -255,26 +253,26 @@
   <div class="form-footer">
     <p class="form-status"></p>
     <button type="submit" class="btn btn-primary">
-      Συνέχεια στην επιβεβαίωση
+      Continue with confirmation
     </button>
   </div>
 </form>
 
 <!-- Ενότητα σύνοψης πριν την τελική επιβεβαίωση -->
 <section id="registerSummary" class="register-summary" hidden>
-  <h2 class="section-title">Επιβεβαίωση στοιχείων</h2>
+  <h2 class="section-title">Continue with confirmation</h2>
   <p class="section-subtitle">
-    Έλεγξε τα στοιχεία σου πριν ολοκληρώσεις την εγγραφή.
+    Check your preferences before completing registration.
   </p>
 
   <div class="register-summary-content"></div>
 
   <div class="register-summary-actions">
     <button type="button" class="btn btn-primary" id="summaryConfirmBtn">
-      Επιβεβαίωση εγγραφής
+      Register Confirmation
     </button>
     <button type="button" class="btn" id="summaryEditBtn">
-      Επιστροφή &amp; διόρθωση
+      Go Back 
     </button>
   </div>
 </section>

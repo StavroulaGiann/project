@@ -25,7 +25,7 @@ window.COURSES = [
     ratingCount: 152,
     thumbnail: "assets/img/thumbnails/js-foundations.jpg",
     tags: ["python", "programming", "Beginner", ],
-    available: true
+    available: true,
   },{
     id: "java-foundations",
     slug: "java=foundations",

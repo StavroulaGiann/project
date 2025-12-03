@@ -167,12 +167,12 @@ function initBookDetailsPage() {
   if (!book) {
     container.innerHTML = `
       <section class="courses-page-header" style="margin-top:2rem;">
-        <h1 class="section-title">Το βιβλίο δεν βρέθηκε</h1>
+        <h1 class="section-title">The book was not found.</h1>
         <p class="section-subtitle">
-          Ίσως ο σύνδεσμος είναι λάθος ή το βιβλίο δεν είναι πλέον διαθέσιμο.
+          Maybe the link is wrong or the book is no longer available.
         </p>
         <p style="margin-top:1rem;">
-          <a href="books.html" class="btn btn-primary">Πίσω στα Books</a>
+          <a href="books.html" class="btn btn-primary">Back to Books</a>
         </p>
       </section>
     `;
@@ -214,13 +214,13 @@ function initBookDetailsPage() {
           ${book.year ? `<span>📅 ${book.year}</span>` : ""}
           ${
             book.pages
-              ? `<span>📖 ${book.pages} σελίδες</span>`
+              ? `<span>📖 ${book.pages} pages</span>`
               : ""
           }
           ${
             book.language
               ? `<span>🌐 ${
-                  book.language === "GR" ? "Ελληνικά" : "Αγγλικά"
+                  book.language === "GR" ? "Greek" : "English"
                 }</span>`
               : ""
           }
@@ -232,7 +232,7 @@ function initBookDetailsPage() {
 
         <div class="course-actions" style="margin-top:1.25rem;">
           <a href="register.html" class="btn btn-primary">
-            Εγγραφή στην πλατφόρμα
+            Register now!
           </a>
           ${
             book.rating && book.ratingCount
@@ -445,7 +445,7 @@ function initBooksPage() {
               <a href="books-details.html?id=${encodeURIComponent(
                 book.id
               )}" class="btn btn-primary">
-                Περισσότερα
+                More...
               </a>
               ${ratingHtml}
             </div>
@@ -480,102 +480,118 @@ function initBooksPage() {
   applyFiltersAndRender();
 }
 
+function getCourseVideoMeta(courseId) {
+  if (!window.COURSE_VIDEOS) return null;
+  const meta = window.COURSE_VIDEOS[courseId];
+  if (!meta) return null;
+  return meta; // δέχεται είτε youtubeId είτε src
+}
+
+
 
 // =============================
 // Course details page
 // =============================
 
 function initCourseDetailsPage() {
-  if (!window.COURSES || !Array.isArray(window.COURSES)) {
-    console.warn("COURSES data not found");
-    return;
-  }
-
   const container = document.getElementById("courseDetailsContainer");
   if (!container) return;
+
+  if (!window.COURSES) return;
 
   const params = new URLSearchParams(window.location.search);
   const id = params.get("id");
 
-  const course = window.COURSES.find((c) => c.id === id);
-
+  const course = window.COURSES.find(c => c.id === id);
   if (!course) {
     container.innerHTML = `
       <section class="courses-page-header" style="margin-top:2rem;">
-        <h1 class="section-title">Το μάθημα δεν βρέθηκε</h1>
-        <p class="section-subtitle">
-          Ίσως ο σύνδεσμος είναι λάθος ή το μάθημα δεν είναι πλέον διαθέσιμο.
-        </p>
-        <p style="margin-top:1rem;">
-          <a href="courses.html" class="btn btn-primary">Πίσω στα Courses</a>
-        </p>
-      </section>
-    `;
+        <h1 class="section-title">The course was not found.</h1>
+        <p class="section-subtitle">Maybe the link is wrong.</p>
+        <a href="courses.html" class="btn btn-primary" style="margin-top:1rem;">
+          Back to Courses
+        </a>
+      </section>`;
     return;
   }
 
-  const categoryLabel = mapCategory(course.category);
-  const levelLabel = mapLevel(course.level);
+const videoMeta = getCourseVideoMeta(course.id);
+
+let videoHtml = "";
+
+if (videoMeta) {
+  if (videoMeta.youtubeId) {
+    // YouTube embed
+    videoHtml = `
+      <aside class="video-card">
+        <iframe
+          src="https://www.youtube.com/embed/${videoMeta.youtubeId}"
+          title="Course intro video"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+      </aside>
+    `;
+  } else if (videoMeta.src) {
+    // Κανονικό .mp4
+    videoHtml = `
+      <aside class="video-card">
+        <video 
+          controls
+          preload="metadata"
+          src="${videoMeta.src}"
+          ${videoMeta.poster ? `poster="${videoMeta.poster}"` : ""}
+        ></video>
+      </aside>
+    `;
+  }
+}
+
 
   container.innerHTML = `
     <section class="courses-page-header" style="margin-top:2rem;">
       <div class="pill">
         <span class="pill-dot"></span>
-        <span>${categoryLabel || "Course"}</span>
+        <span>${mapCategory(course.category)}</span>
       </div>
 
-      <h1 class="section-title">${escapeHtml(course.title)}</h1>
-      ${
-        course.subtitle
-          ? `<p class="section-subtitle">${escapeHtml(course.subtitle)}</p>`
-          : ""
-      }
+      <h1 class="section-title">${course.title}</h1>
+      ${course.subtitle ? `<p class="section-subtitle">${course.subtitle}</p>` : ""}
     </section>
 
-    <section class="courses-details-layout" style="margin:1.5rem 0 3rem; display:grid; gap:1.5rem;">
+    <section class="course-details-grid">
       <article class="course-card">
+
         <div class="course-badges">
-          ${levelLabel ? `<span class="course-badge">${levelLabel}</span>` : ""}
-          ${course.isNew ? `<span class="course-badge">New</span>` : ""}
+          ${course.level ? `<span class="course-badge">${course.level}</span>` : ""}
           ${course.popular ? `<span class="course-badge">Popular</span>` : ""}
+          ${course.isNew ? `<span class="course-badge">New</span>` : ""}
         </div>
 
-        ${
-          course.longDescription
-            ? `<p class="section-subtitle" style="margin-top:0.75rem;">${escapeHtml(
-                course.longDescription
-              )}</p>`
-            : `<p class="section-subtitle" style="margin-top:0.75rem;">${escapeHtml(
-                course.shortDescription || ""
-              )}</p>`
-        }
+        <p class="section-subtitle" style="margin-top:0.75rem;">
+          ${course.longDescription || course.shortDescription}
+        </p>
 
         <div class="course-meta" style="margin-top:0.75rem;">
-          ${course.duration ? `<span>⏱ ${course.duration}</span>` : ""}
-          ${
-            course.lessonsCount
-              ? `<span>📚 ${course.lessonsCount} lessons</span>`
-              : ""
-          }
-          ${course.mode ? `<span>💻 ${course.mode}</span>` : ""}
+          ${course.duration ? `⏱ ${course.duration}` : ""}
+          ${course.lessonsCount ? `📚 ${course.lessonsCount} lessons` : ""}
+          ${course.mode ? `💻 ${course.mode}` : ""}
         </div>
 
         <div class="course-actions" style="margin-top:1.25rem;">
-          <a href="register.html" class="btn btn-primary">
-            Εγγραφή στο μάθημα
-          </a>
-          ${
-            course.rating && course.ratingCount
-              ? `<span class="course-rating"><strong>★ ${course.rating.toFixed(
-                  1
-                )}</strong> (${course.ratingCount})</span>`
-              : ""
-          }
+          <a href="register.html" class="btn btn-primary">Register now!</a>
+          ${course.rating ? `<span class="course-rating"><strong>★ ${course.rating}</strong> (${course.ratingCount})</span>` : ""}
         </div>
       </article>
+
+      ${videoHtml}
     </section>
   `;
 }
+
+
+
 
 
 // =============================
@@ -764,7 +780,7 @@ function initCoursesPage() {
             class="btn btn-primary course-more-btn"
             data-course-id="${course.id}"
           >
-            Περισσότερα
+            More...
           </button>
           ${ratingHtml}
         </div>
@@ -793,10 +809,10 @@ function initCoursesPage() {
               <a href="courses-details.html?id=${encodeURIComponent(
                 course.id
               )}" class="btn btn-primary">
-                Πλήρεις λεπτομέρειες
+                Full details
               </a>
               <a href="register.html" class="btn">
-                Εγγραφή στο μάθημα
+                Register
               </a>
             </div>
           `);

@@ -295,6 +295,24 @@ main {
     flex: 1;
   }
 }
+/* ===========================
+   Course details layout
+   =========================== */
+
+.course-details-grid {
+  margin: 1.5rem 0 3rem;
+  display: grid;
+  gap: 1.5rem;
+}
+
+/* Desktop / tablet: 2 στήλες (κείμενο + video) */
+@media (min-width: 880px) {
+  .course-details-grid {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1.1fr);
+    align-items: flex-start;
+  }
+}
+
 
 /* ===========================
    About page layout

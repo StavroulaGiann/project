@@ -68,9 +68,9 @@
             <span>Browse all devAcademy courses</span>
           </div>
 
-          <h1 class="section-title">Μαθήματα Πληροφορικής</h1>
+          <h1 class="section-title">Informatics Courses</h1>
           <p class="section-subtitle">
-            Διάλεξε κατηγορία, επίπεδο και βρες το επόμενο course σου στην devAcademy.
+            Choose a track, level and find your next course at devAcademy.
           </p>
         </section>
 
@@ -78,27 +78,27 @@
         <section class="courses-layout">
           <!-- Φίλτρα -->
           <aside class="courses-filters" aria-label="Φίλτρα μαθημάτων">
-            <h2 class="section-title">Φίλτρα</h2>
+            <h2 class="section-title">Filters</h2>
             <p class="section-subtitle">
-              Περιόρισε τα μαθήματα ανά κατηγορία, επίπεδο και διαθεσιμότητα.
+              Narrow down the courses by category, level and availability.
             </p>
 
             <form id="coursesFilters" class="filters-form">
               <div class="field-group">
-                <label for="searchInput">Αναζήτηση</label>
+                <label for="searchInput">Search</label>
                 <input
                   type="search"
                   id="searchInput"
                   name="q"
-                  placeholder="Τίτλος ή λέξεις-κλειδιά..."
+                  placeholder="Title - keywords"
                 />
               </div>
 
               <div class="filters-row">
                 <div class="field-group">
-                  <label for="categoryFilter">Κατηγορία</label>
+                  <label for="categoryFilter">Category</label>
                   <select id="categoryFilter" name="category">
-                    <option value="">Όλες</option>
+                    <option value="">All</option>
                     <option value="programming">Programming</option>
                     <option value="web">Web</option>
                     <option value="networks">Networks</option>
@@ -107,9 +107,9 @@
                 </div>
 
                 <div class="field-group">
-                  <label for="levelFilter">Επίπεδο</label>
+                  <label for="levelFilter">Level</label>
                   <select id="levelFilter" name="level">
-                    <option value="">Όλα</option>
+                    <option value="">All</option>
                     <option value="beginner">Beginner</option>
                     <option value="intermediate">Intermediate</option>
                     <option value="advanced">Advanced</option>
@@ -119,19 +119,19 @@
 
               <div class="filters-row">
                 <div class="field-group">
-                  <label for="availabilityFilter">Διαθεσιμότητα</label>
+                  <label for="availabilityFilter">Availability</label>
                   <select id="availabilityFilter" name="availability">
-                    <option value="">Όλα</option>
-                    <option value="available">Μόνο διαθέσιμα</option>
+                    <option value="">All</option>
+                    <option value="available">Available Only</option>
                   </select>
                 </div>
 
                 <div class="field-group">
-                  <label for="languageFilter">Γλώσσα</label>
+                  <label for="languageFilter">Language</label>
                   <select id="languageFilter" name="language">
-                    <option value="">Όλες</option>
-                    <option value="GR">Ελληνικά</option>
-                    <option value="EN">Αγγλικά</option>
+                    <option value="">All</option>
+                    <option value="GR">Greek</option>
+                    <option value="EN">English</option>
                   </select>
                 </div>
               </div>
@@ -142,19 +142,19 @@
           <div class="courses-list">
             <div class="courses-list-header">
               <div>
-                <h2 class="section-title">Όλα τα μαθήματα</h2>
+                <h2 class="section-title">All courses</h2>
                 <p class="section-subtitle">
-                  <span id="coursesCount">0 courses</span> διαθέσιμα αυτή τη στιγμή.
+                  <span id="coursesCount">0 courses</span> available at moment.
                 </p>
               </div>
 
               <div class="courses-sort">
-                <label for="sortBy">Ταξινόμηση</label>
+                <label for="sortBy">Sort by</label>
                 <select id="sortBy" name="sort">
-                  <option value="featured">Προτεινόμενα</option>
-                  <option value="rating">Καλύτερη αξιολόγηση</option>
-                  <option value="newest">Νεότερα</option>
-                  <option value="duration">Διάρκεια</option>
+                  <option value="featured">Suggested</option>
+                  <option value="rating">Best rated</option>
+                  <option value="newest">Newest</option>
+                  <option value="duration">Duration</option>
                 </select>
               </div>
             </div>
@@ -166,8 +166,8 @@
 
             <!-- Empty state -->
             <div id="coursesEmpty" class="empty-state" hidden>
-              Δεν βρέθηκαν μαθήματα για αυτά τα φίλτρα.
-              Δοκίμασε να αλλάξεις κατηγορία ή επίπεδο.
+            No lessons found for these filters.
+            Try changing category or level.
             </div>
           </div>
         </section>
