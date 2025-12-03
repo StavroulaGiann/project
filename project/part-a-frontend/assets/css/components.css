@@ -613,10 +613,33 @@ footer {
 .mobile-menu.is-open {
   display: flex;
 }
+.mobile-menu a:not(.btn) {
+  position: relative;
+  display: block;
+  padding: 12px 0;
+  color: #e3f5ff;
+  transition: color 0.25s ease;
+}
 
-.mobile-menu a {
-  font-size: 0.9rem;
-  color: var(--text-main);
+.mobile-menu a:not(.btn)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 6px;
+  width: 0%;
+  height: 2px;
+  background: #00c8ff;
+  border-radius: 4px;
+  box-shadow: 0 0 8px #00c8ff;
+  transition: width 0.25s ease;
+}
+
+.mobile-menu a:not(.btn):hover {
+  color: #ffffff;
+}
+
+.mobile-menu a:not(.btn):hover::after {
+  width: 60%;
 }
 
 /* HAMBURGER ICON */
@@ -1110,4 +1133,43 @@ footer {
   height: 100%;
   aspect-ratio: 16 / 9;
   border: 0;
+}
+
+/* ===========================
+   NAV: Glow underline on hover
+   =========================== */
+
+.nav-links a {
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.25s ease;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 2px;
+  background: #00c8ff; /* neon blue */
+  border-radius: 4px;
+  box-shadow: 0 0 6px #00c8ff;
+  transition: width 0.25s ease;
+}
+
+.nav-links a:hover {
+  color: #d7f7ff;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-links a.active::after {
+  width: 100%;
+}
+
+.nav-links a.active {
+  color: #d7f7ff;
 }
