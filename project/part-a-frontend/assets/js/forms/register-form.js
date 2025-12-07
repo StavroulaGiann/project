@@ -53,6 +53,25 @@
       .replace(/'/g, "&#039;");
   }
 
+    function calculateAge(birthDateStr) {
+    if (!birthDateStr) return null;
+
+    const today = new Date();
+    const birthDate = new Date(birthDateStr);
+
+    if (isNaN(birthDate.getTime())) return null;
+
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDiff = today.getMonth() - birthDate.getMonth();
+    const dayDiff = today.getDate() - birthDate.getDate();
+
+    if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+      age--;
+    }
+
+    return age;
+  }
+
   // -------------------------------------
   // Validation
   // -------------------------------------
@@ -66,6 +85,8 @@
     const firstName = formData.get("firstName")?.trim();
     const lastName = formData.get("lastName")?.trim();
     const email = formData.get("email")?.trim();
+    const birthDateStr = formData.get("birthDate");
+    const age = calculateAge(birthDateStr);
     const password = formData.get("password") || "";
     const confirmPassword = formData.get("confirmPassword") || "";
     const role = formData.get("role");
@@ -88,6 +109,15 @@
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!email || !emailRegex.test(email)) {
       setFieldError("email", "Please provide a valid email.");
+      valid = false;
+    }
+
+    // Birthdate / Age
+    if (!birthDateStr) {
+      setFieldError("birthDate", "Birthdate is required.");
+      valid = false;
+    } else if (age === null || age < 15) {
+      setFieldError("birthDate", "You must be at least 15 years old.");
       valid = false;
     }
 
@@ -137,6 +167,8 @@
 
     const firstName = (formData.get("firstName") || "").trim();
     const lastName = (formData.get("lastName") || "").trim();
+    const birthDateStr = (formData.get("birthDate") || "").trim();
+    const age = calculateAge(birthDateStr);
     const email = (formData.get("email") || "").trim();
     const role = formData.get("role") || "";
     const interest = formData.get("interest") || "";
@@ -151,6 +183,10 @@
           <div class="summary-row">
             <dt>First / Last Name:</dt>
             <dd>${escapeHtml(fullName)}</dd>
+          </div>
+          <div class="summary-row">
+            <dt>Birthdate / Age:</dt>
+            <dd>${escapeHtml(birthDateStr)}${age != null ? " (" + age + " years)" : ""}</dd>
           </div>
           <div class="summary-row">
             <dt>Email:</dt>

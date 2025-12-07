@@ -2,21 +2,25 @@
 .logo {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: var(--logo-gap);
   font-weight: var(--fw-semibold);
   font-size: var(--fs-lg);
-  letter-spacing: 0.03em;
+  letter-spacing: var(--logo-letter-spacing);
+  --logo-gradient: linear-gradient(90deg, #38bdf8, #6366f1, #a855f7);
 }
 
 .logo-badge {
-  width: 30px;
-  height: 30px;
-  border-radius: 999px;
-  background: radial-gradient(circle at 30% 20%, #38bdf8, #0ea5e9 40%, #0f172a 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.9rem;
+  font-weight: 900;
+  background: var(--logo-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.logo-text {
+  font-weight: 900;
+  background: var(--logo-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 

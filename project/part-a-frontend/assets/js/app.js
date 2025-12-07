@@ -1,4 +1,4 @@
-// AICANARY: CSD-ELearn-2025
+
 
 document.addEventListener("DOMContentLoaded", () => {
   // 1. Mobile menu
@@ -215,18 +215,18 @@ function initBookDetailsPage() {
         <div class="course-meta" style="margin-top:0.75rem;">
           ${
             book.author
-              ? `<span>✍️ ${escapeHtml(book.author)}</span>`
+              ? `<span>ᯓ★ ${escapeHtml(book.author)}</span>`
               : ""
           }
-          ${book.year ? `<span>📅 ${book.year}</span>` : ""}
+          ${book.year ? `<span>ᯓ★ ${book.year}</span>` : ""}
           ${
             book.pages
-              ? `<span>📖 ${book.pages} pages</span>`
+              ? `<span>ᯓ★ ${book.pages} pages</span>`
               : ""
           }
           ${
             book.language
-              ? `<span>🌐 ${
+              ? `<span>ᯓ★ ${
                   book.language === "GR" ? "Greek" : "English"
                 }</span>`
               : ""
@@ -581,9 +581,9 @@ if (videoMeta) {
         </p>
 
         <div class="course-meta" style="margin-top:0.75rem;">
-          ${course.duration ? `⏱ ${course.duration}` : ""}
-          ${course.lessonsCount ? `📚 ${course.lessonsCount} lessons` : ""}
-          ${course.mode ? `💻 ${course.mode}` : ""}
+          ${course.duration ? `ᯓ★ ${course.duration}` : ""}
+          ${course.lessonsCount ? `ᯓ★ ${course.lessonsCount} lessons` : ""}
+          ${course.mode ? `ᯓ★ ${course.mode}` : ""}
         </div>
 
         <div class="course-actions" style="margin-top:1.25rem;">
@@ -880,12 +880,6 @@ function mapCategory(cat) {
       return "Networks";
     case "security":
       return "Cyber Security";
-    case "databases":
-      return "Databases";
-    case "tools":
-      return "Tools";
-    case "devops":
-      return "DevOps";
     default:
       return "";
   }

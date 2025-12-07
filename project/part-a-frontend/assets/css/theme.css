@@ -20,6 +20,13 @@
   --radius-xl: 24px;
   --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.55);
 
+  /* Logo */
+  --logo-gap: 0.5rem;
+  --logo-letter-spacing: 0.03em;
+
+
+
+
   /* CONTAINER / LAYOUT */
   --max-width: 1120px;
   --page-padding-x: 2rem;

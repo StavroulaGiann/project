@@ -1,5 +1,4 @@
-// AICANARY: CSD-ELearn-2025
-// Simple reusable modal controller
+
 
 (function () {
   const modal = document.getElementById("modal");
