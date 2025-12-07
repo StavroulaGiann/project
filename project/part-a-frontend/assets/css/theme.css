@@ -1,9 +1,11 @@
-/* // AICANARY: CSD-ELearn-2025 */
+
 :root {
+  /* Γενικά */
   --bg: #05060a;
   --bg-alt: #0d1117;
   --card-bg: #111827;
   --accent: #38bdf8;
+  --accent-alt: #0ea5e9;
   --accent-soft: rgba(56, 189, 248, 0.12);
   --text-main: #e5e7eb;
   --text-muted: #9ca3af;
@@ -12,13 +14,225 @@
   --radius-xl: 24px;
   --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.55);
   --max-width: 1120px;
+
+   /* Ακτίνες / σκιές */
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.55);
+
+  /* CONTAINER / LAYOUT */
+  --max-width: 1120px;
+  --page-padding-x: 2rem;
+  --page-padding-x-mobile: 1.25rem;
+  --section-gap: 3rem;
+  --section-header-gap: 0.5rem;
+  --grid-gap: 1.4rem;
+  --nav-gap: 1.6rem;
+  --nav-height: 64px;
+
+  /* BREAKPOINTS */
+  --bp-tablet: 880px;
+  --bp-mobile: 600px;
+
+  /* TYPOGRAPHY – οικογένειες */
+  --font-base: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-heading: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  /* TYPOGRAPHY – βάρη */
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  /* TYPOGRAPHY – μεγέθη */
+  --fs-xs: 0.8rem;
+  --fs-sm: 0.86rem;
+  --fs-base: 0.95rem;
+  --fs-lg: 1.05rem;
+  --fs-xl: 1.25rem;
+  --fs-section-title: 1.25rem;
+  --fs-hero: clamp(2.1rem, 4vw, 2.7rem);
+
+
+  /* HEADER / NAV */
+  --header-bg: #020617;
+  --nav-link-hover: #d7f7ff;
+  --nav-underline: #00c8ff;
+
+  /* BUTTONS */
+  --btn-radius-pill: 999px;
+  --btn-font-size: 0.9rem;
+  --btn-padding-y: 0.55rem;
+  --btn-padding-x: 1.4rem;
+
+  --btn-primary-bg-from: #38bdf8;
+  --btn-primary-bg-to: #0ea5e9;
+  --btn-primary-text: #0b1220;
+  --btn-primary-shadow: 0 10px 25px rgba(56, 189, 248, 0.35);
+  --btn-primary-shadow-hover: 0 14px 35px rgba(56, 189, 248, 0.55);
+
+  --btn-ghost-bg: rgba(255, 255, 255, 0.03);
+  --btn-ghost-bg-hover: rgba(255, 255, 255, 0.08);
+  --btn-ghost-border: rgba(255, 255, 255, 0.15);
+  --btn-ghost-border-hover: rgba(255, 255, 255, 0.25);
+
+  /* FOOTER */
+  --footer-bg: linear-gradient(180deg, rgba(2, 6, 23, 0.8), rgba(2, 6, 23, 1));
+  --footer-border: rgba(148, 163, 184, 0.14);
+
+  /* CARDS */
+  --track-card-border: rgba(37, 99, 235, 0.7);
+  --track-card-glow: rgba(56, 189, 248, 0.20);
+
+  /* PILL */
+  --pill-border: rgba(56, 189, 248, 0.35);
+  --pill-bg: radial-gradient(circle at left, rgba(56, 189, 248, 0.18), transparent 55%),
+             rgba(15, 23, 42, 0.95);
+  --pill-dot: #22c55e;
+  --pill-dot-glow: rgba(34, 197, 94, 0.35);
+
+  /* HERO gradient text */
+  --hero-gradient-from: #38bdf8;
+  --hero-gradient-to: #a855f7;
+
+  /* Mobile menu */
+  --mobile-menu-bg: rgba(15, 23, 42, 0.98);
+  --mobile-menu-border: rgba(148, 163, 184, 0.18);
+
+  /* Inputs (register form) */
+  --input-bg: #ae8bcae0;
+  --input-border: rgba(56, 189, 248, 0.5);
+
+  /* HEADER / NAV (desktop) */
+  --header-bg: #020617;
+  --nav-link-color: var(--text-main);
+  --nav-link-hover: #d7f7ff;
+  --nav-link-active: #d7f7ff;
+  --nav-underline-color: #00c8ff;
+  --nav-underline-glow: 0 0 6px #00c8ff;
+
+  /* MOBILE MENU */
+--mobile-menu-bg: rgba(15, 23, 42, 0.98);
+--mobile-menu-border: rgba(148, 163, 184, 0.18);
+--mobile-menu-text: #e3f5ff;
+--mobile-menu-text-hover: #ffffff;
+
+--mobile-menu-underline: #00c8ff;
+--mobile-menu-underline-glow: 0 0 8px #00c8ff;
+
+--mobile-menu-item-padding-y: 0.6rem;
+--mobile-menu-item-gap: 0.75rem;
+--mobile-menu-padding-x: 1.5rem;
+--mobile-menu-padding-y: 1rem;
+
+/* === CARD SYSTEM === */
+
+/* basic card layout */
+--card-bg-default: rgba(15, 23, 42, 0.98);
+--card-border-default: rgba(37, 99, 235, 0.7);
+--card-radius: 22px;
+--card-padding: 1.2rem;
+--card-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+--card-shadow-hover: 0 20px 45px rgba(0, 0, 0, 0.8);
+--card-glow-1: radial-gradient(circle at top left, rgba(56, 189, 248, 0.20), transparent 55%);
+--card-transition-speed: 0.25s;
+
+/* 3D tilt effect */
+--tilt-perspective: 700px;
+--tilt-rotate-max: 8deg;
+
+  --tilt-enabled: 1;          /* 1 = on, 0 = off */
+
+  --card-tilt-lift: -2px;     /* το translateY στο tilt */
+/* reveal on scroll */
+--reveal-translateY: 40px;
+--reveal-duration: 0.6s;
+--reveal-opacity-start: 0;
+
+/* =========================================================
+   FILTERS / TAGS / CATEGORY PILLS
+   ========================================================= */
+/* ===== Filters / Courses sidebar ===== */
+--filters-panel-bg: var(--card-bg);
+--filters-panel-border: var(--border-subtle);
+--filters-panel-radius: var(--radius-xl);
+--filters-panel-padding-x: 1.25rem;
+--filters-panel-padding-y: 1rem;
+
+--filters-panel-gap: 0.9rem;
+--filters-row-gap: 0.75rem;
+
+--filters-label-font-size: 0.8rem;
+--filters-label-color: var(--text-muted);
+
+--filters-field-radius: 999px;
+--filters-field-border: var(--border-subtle);
+--filters-field-bg: #020617;
+--filters-field-padding-y: 0.45rem;
+--filters-field-padding-x: 0.8rem;
+--filters-field-font-size: 0.9rem;
+--filters-field-text-color: var(--text-main);
+
+--filters-focus-border: rgba(56, 189, 248, 0.7);
+--filters-focus-shadow: 0 0 0 1px rgba(56, 189, 248, 0.45);
+
+/* ===== Badges (course tags) ===== */
+--badge-font-size: 0.7rem;
+--badge-radius: 999px;
+--badge-padding-y: 0.1rem;
+--badge-padding-x: 0.6rem;
+
+--badge-bg: rgba(15, 23, 42, 0.95);
+--badge-border: rgba(148, 163, 184, 0.45);
+--badge-text: var(--text-muted);
+
+/* primary badge (π.χ. Programming) */
+--badge-primary-bg: radial-gradient(
+  circle at top left,
+  rgba(56, 189, 248, 0.18),
+  transparent 60%
+);
+--badge-primary-border: rgba(56, 189, 248, 0.8);
+--badge-primary-text: var(--accent);
+
+/* === ABOUT / TEAM CARD SHAPE === */
+--about-card-rotate: -3deg;                /* γωνία περιστροφής εξωτερικής κάρτας */
+--about-card-inner-rotate: 3deg;           /* αντίστροφη περιστροφή εσωτερικής εικόνας */
+--about-card-clip: polygon(
+    12% 0%,   88% 0%,
+    100% 25%, 100% 75%,
+    88% 100%, 12% 100%,
+    0% 75%,   0% 25%
+); /* το εξάγωνο shape */
+--about-card-bg: var(--card-bg);           /* background της κάρτας */
+--about-card-radius: var(--radius-xl);
+--about-card-padding: 1rem;
+--team-photo-spin-animation: team-photo-spin 24s linear infinite;
+--team-photo-spin-enabled: 1;
+
+/* About highlight card */
+--about-highlight-bg: radial-gradient(
+  circle at top left,
+  rgba(56, 189, 248, 0.18),
+  transparent 55%
+);
+--about-highlight-border: rgba(148, 163, 184, 0.35);
+--about-highlight-radius: var(--radius-xl);
+--about-highlight-padding-x: 1.5rem;
+--about-highlight-padding-y: 1.25rem;
+
+
+
+
 }
 
+
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: var(--font-base);
   background: radial-gradient(circle at top, #0b1220 0, #020617 40%, #020617 100%);
   color: var(--text-main);
   line-height: 1.5;
+  font-size: var(--fs-base);
 }
 
 a {

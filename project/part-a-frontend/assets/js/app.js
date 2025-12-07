@@ -99,6 +99,10 @@ function initScrollReveal() {
 // =============================
 
 function initGlobalTiltCards() {
+  const rootStyles = getComputedStyle(document.documentElement);
+const tiltEnabled = rootStyles.getPropertyValue("--tilt-enabled").trim() === "1";
+const tiltPerspective = rootStyles.getPropertyValue("--tilt-perspective").trim() || "700px";
+const tiltLift = rootStyles.getPropertyValue("--card-tilt-lift").trim() || "-2px";
   const selectors = [
     ".track-card",
     ".course-card",
@@ -129,12 +133,15 @@ function initGlobalTiltCards() {
       const rotateY = ((x - midX) / midX) * maxRotate * -1;
       const rotateX = ((y - midY) / midY) * maxRotate;
 
-      card.style.transform = `
-        perspective(700px)
-        rotateX(${rotateX.toFixed(2)}deg)
-        rotateY(${rotateY.toFixed(2)}deg)
-        translateY(-2px)
-      `;
+      if (!tiltEnabled) {
+  card.style.transform = "none";
+} else {
+  card.style.transform = `
+    perspective(${tiltPerspective})
+    rotateX(${rotateX.toFixed(2)}deg)
+    rotateY(${rotateY.toFixed(2)}deg)
+    translateY(${tiltLift})
+  `;}σ
       card.classList.add("is-tilting");
     });
 
