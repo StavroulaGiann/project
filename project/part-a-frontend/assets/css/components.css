@@ -34,6 +34,7 @@
   border: 1px solid transparent;
   cursor: pointer;
   white-space: nowrap;
+
 }
 
 
@@ -119,6 +120,8 @@
   box-shadow: var(--card-shadow);
   transition: transform var(--card-transition-speed),
               box-shadow var(--card-transition-speed);
+  display: flex;
+  flex-direction: column;
 }
 
 .track-card:hover,
@@ -814,7 +817,6 @@ footer {
 
 .course-actions {
   margin-top: auto;
-    
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -823,8 +825,10 @@ footer {
 }
 
 .course-actions .btn {
-  margin-top: 1px;
+  margin-top: auto;
   padding-inline: 0.9rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .course-rating {
@@ -1151,19 +1155,14 @@ footer {
 
 /* === Make the hero prompt image bigger === */
 
-.hero-code-image {
-  width: 100%;
-  max-width: none !important;
-  overflow: hidden;
-}
 
 .hero-code-img {
   display: block;
-  width: 170% !important;      /* μεγαλώνει την εικόνα οριζόντια */
+  width: 140% ;      /* μεγαλώνει την εικόνα οριζόντια */
   max-width: none !important;
-  height: auto !important;
   transform: translateX(-11%) scale(0.8);  /* έξτρα zoom + λίγο προς τα αριστερά */
   transform-origin: center;
+  overflow: visible;
 }
 
 
