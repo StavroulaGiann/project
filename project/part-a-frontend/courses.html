@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html lang="el">
 <head>
+  <!-- Ορισμός κωδικοποίησης χαρακτήρων σε UTF-8 ώστε να υποστηρίζονται σωστά ελληνικοί χαρακτήρες -->
   <meta charset="UTF-8" />
+
+  <!-- Τίτλος της σελίδας που εμφανίζεται στην καρτέλα του προγράμματος περιήγησης -->
   <title>devAcademy | Courses</title>
+
+  <!-- Σύνδεση με reset.css, theme.css, layout.css και components.css για τη μορφοποίηση της σελίδας -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="assets/css/reset.css" />
   <link rel="stylesheet" href="assets/css/theme.css" />
@@ -10,29 +15,33 @@
   <link rel="stylesheet" href="assets/css/components.css" />
 </head>
 
+<!-- Το data-page attribute χρησιμοποιείται για styling ή για την Javascript λογική -->
 <body data-page="courses">
   <div class="page">
-    <!-- HEADER -->
+    <!-- Header Section -->
     <header>
       <div class="container">
+        <!-- Κεντρικό navigation bar -->
         <nav class="nav">
+          <!-- Logo της εφαρμογής που λειτουργεί και ως σύνδεσμος προς την αρχική σελίδα -->
           <a href="index.html" class="logo">
             <div class="logo-badge">&lt;/&gt;</div>
             <div class="logo-text">devAcademy</div>
           </a>
-
+          <!-- Links που οδηγούν στις υπόλοιπες σελίδες. Η κλάση "active" επιτρέπει την υπογράμμιση στο μενού της σελίδας στην οποία βρισκόμαστε -->
           <div class="nav-links">
             <a href="index.html">Home</a>
             <a href="courses.html" class="active">Courses</a>
             <a href="books.html">Books</a>
             <a href="about.html">About</a>
           </div>
-
+          <!-- Call-to-action κουμπί για Register -->
           <div class="nav-cta">
             <a href="register.html" class="btn btn-primary">Register</a>
           </div>
 
-          <!-- Mobile toggle -->
+          <!--Κουμπί toggle για την εμφάνιση και απόκρυψη (show / hide) του mobile navigation menu. Τα aria attributes βελτιώνουν την χρηστικότητα για τη πλοήγηση
+          από όλους τους χρήστες ανεξαρτήτως -->
           <button
             class="mobile-toggle"
             id="mobileToggle"
@@ -44,7 +53,7 @@
           </button>
         </nav>
 
-        <!-- Mobile menu -->
+      <!-- Mobile navigation menu που εμφανίζεται όταν η οθόνη είναι μικρή -->
         <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
           <a href="index.html">Home</a>
           <a href="courses.html">Courses</a>
@@ -55,10 +64,10 @@
       </div>
     </header>
 
-    <!-- MAIN -->
+    <!-- Main Content -->
     <main>
       <div class="container">
-        <!-- Επικεφαλίδα σελίδας -->
+          <!--Επικεφαλίδα σελίδας: Παρουσιάζει τον σκοπό της σελίδας και καθοδηγεί τον χρήστη στη διαδικασία εύρεσης μαθημάτων -->
         <section class="courses-page-header">
           <div class="pill">
             <span class="pill-dot"></span>
@@ -71,16 +80,19 @@
           </p>
         </section>
 
-        <!-- Layout: φίλτρα + λίστα μαθημάτων -->
+        <!-- Κύρια διάταξη σελίδας: Αριστερά φίλτρα (aside), δεξιά λίστα/κάρτες μαθημάτων.-->
         <section class="courses-layout">
-          <!-- Φίλτρα -->
+
+          <!-- Φίλτρα : aria-label βοηθά την κατανόηση της ενότητας από screen readers. -->
           <aside class="courses-filters" aria-label="Φίλτρα μαθημάτων">
             <h2 class="section-title">Filters</h2>
             <p class="section-subtitle">
               Narrow down the courses by category, level and availability.
             </p>
-
+            
+            <!-- Φόρμα φίλτρων: Τα inputs χρησιμοποιούνται από JS για φιλτράρισμα και ενημέρωση του courses grid χωρίς αλλαγή σελίδας. -->
             <form id="coursesFilters" class="filters-form">
+              <!-- Search input: φιλτράρει με βάση τίτλο/λέξεις-κλειδιά -->
               <div class="field-group">
                 <label for="searchInput">Search</label>
                 <input
@@ -90,7 +102,7 @@
                   placeholder="Title - keywords"
                 />
               </div>
-
+              <!-- Φίλτρα κατηγορίας -->
               <div class="filters-row">
                 <div class="field-group">
                   <label for="categoryFilter">Category</label>
@@ -102,7 +114,7 @@
                     <option value="security">Security</option>
                   </select>
                 </div>
-
+                <!-- Φίλτρα επιπέδου -->
                 <div class="field-group">
                   <label for="levelFilter">Level</label>
                   <select id="levelFilter" name="level">
@@ -113,7 +125,7 @@
                   </select>
                 </div>
               </div>
-
+              <!-- Φίλτρα διαθεσιμότητας -->
               <div class="filters-row">
                 <div class="field-group">
                   <label for="availabilityFilter">Availability</label>
@@ -122,7 +134,7 @@
                     <option value="available">Available Only</option>
                   </select>
                 </div>
-
+                <!-- Φίλτρα γλώσσας -->
                 <div class="field-group">
                   <label for="languageFilter">Language</label>
                   <select id="languageFilter" name="language">
@@ -137,14 +149,16 @@
 
           <!-- Λίστα μαθημάτων -->
           <div class="courses-list">
+            <!-- Header λίστας: συνολικός αριθμός και επιλογές ταξινόμησης -->
             <div class="courses-list-header">
               <div>
                 <h2 class="section-title">All courses</h2>
+                <!-- coursesCount ενημερώνεται δυναμικά μέσω JS  με βάση τα φίλτρα και τα διαθέσιμα δεδομένα.-->
                 <p class="section-subtitle">
                   <span id="coursesCount">0 courses</span> available at moment.
                 </p>
               </div>
-
+              <!-- Sort select: καθορίζει τη σειρά εμφάνισης αποτελεσμάτων -->
               <div class="courses-sort">
                 <label for="sortBy">Sort by</label>
                 <select id="sortBy" name="sort">
@@ -156,12 +170,12 @@
               </div>
             </div>
 
-            <!-- Grid με κάρτες μαθημάτων (γεμίζει με JS) -->
+            <!-- Grid με κάρτες μαθημάτων  -->
             <div id="coursesGrid" class="cards-grid">
               <!-- Οι .course-card θα μπουν εδώ με JavaScript από το COURSES array -->
             </div>
 
-            <!-- Empty state -->
+            <!-- Empty state :  Εμφανίζεται όταν τα φίλτρα δεν επιστρέφουν αποτελέσματα.-->
             <div id="coursesEmpty" class="empty-state" hidden>
             No lessons found for these filters.
             Try changing category or level.
@@ -171,7 +185,7 @@
       </div>
     </main>
 
-    <!-- FOOTER -->
+    <!-- Footer -->
     <footer>
       <div class="container">
         <div class="footer-inner">
@@ -183,7 +197,7 @@
     </footer>
   </div>
 
-  <!-- MODAL -->
+<!-- Modal: Δομή popup για δυναμικά μηνύματα (π.χ. επιβεβαίωση εγγραφής). -->
   <div id="modal" class="modal">
     <div class="modal-box">
       <button id="modalClose" class="modal-close">&times;</button>
@@ -191,7 +205,7 @@
     </div>
   </div>
 
-  <!-- Scripts -->
+  <!-- Σύνδεση με Javascript αρχεία για UI συμπεριφορά και responsiveness -->
   <script src="assets/js/data/courses.js" defer></script>
   <script src="assets/js/ui/menu.js" defer></script>
   <script src="assets/js/ui/responsive.js" defer></script>
