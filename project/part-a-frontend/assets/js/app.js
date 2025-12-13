@@ -141,7 +141,7 @@ const tiltLift = rootStyles.getPropertyValue("--card-tilt-lift").trim() || "-2px
     rotateX(${rotateX.toFixed(2)}deg)
     rotateY(${rotateY.toFixed(2)}deg)
     translateY(${tiltLift})
-  `;}σ
+  `;}
       card.classList.add("is-tilting");
     });
 
@@ -261,7 +261,7 @@ function initBookDetailsPage() {
 
 function initBooksPage() {
   if (!window.BOOKS || !Array.isArray(window.BOOKS)) {
-    console.warn("❗ BOOKS data not found. Έλεγξε το assets/js/data/books.js");
+    console.warn(" BOOKS data not found. Έλεγξε το assets/js/data/books.js");
     return;
   }
 
@@ -270,7 +270,7 @@ function initBooksPage() {
   const emptyEl = document.getElementById("booksEmpty");
 
   if (!grid) {
-    console.warn("❗ #booksGrid δεν βρέθηκε στο DOM.");
+    console.warn(" #booksGrid δεν βρέθηκε στο DOM.");
     return;
   }
 
@@ -607,7 +607,7 @@ if (videoMeta) {
 
 function initCoursesPage() {
   if (!window.COURSES || !Array.isArray(window.COURSES)) {
-    console.warn("❗ COURSES data not found. Έλεγξε το assets/js/data/courses.js");
+    console.warn(" COURSES data not found. Έλεγξε το assets/js/data/courses.js");
     return;
   }
 
@@ -616,7 +616,7 @@ function initCoursesPage() {
   const emptyEl = document.getElementById("coursesEmpty");
 
   if (!grid) {
-    console.warn("❗ #coursesGrid δεν βρέθηκε στο DOM.");
+    console.warn(" #coursesGrid δεν βρέθηκε στο DOM.");
     return;
   }
 
