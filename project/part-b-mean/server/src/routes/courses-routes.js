@@ -1,9 +1,7 @@
 const router = require("express").Router();
+const c = require("../controllers/courses-controller");
 
-router.get("/", (req, res) => {
-  console.log("GET /api/courses hit");
-  res.json([]);
-});
+router.get("/", c.getCourses);
+router.post("/", c.createCourse);
 
 module.exports = router;
-
